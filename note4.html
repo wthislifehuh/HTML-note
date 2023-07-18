@@ -15,11 +15,21 @@
         MP4 (.mp4) is developed by MPEG & played by most, great compression, low bandwidth requriement-->
     <video controls poster="img.jpg" width="160" height="150">
         <!--Always include width and height, might flicker if not-->
+        
         <source src="video.mp4" type="video/mp4">
         <source src="video.ogg" type="video/ogg">
         <source src="video.webm" type="video/webm">
         <source src="video.mov" type="video/mov">
         <a href="video.mp4">Download the video</a> (.mp4)
+        
+        <!--Subtitles/Caption-->
+        <!-- <track> element: specify subtitles for a video 
+        label: language
+        kind: type of content
+        srclang: source language
+        src: reference to the text file that contains the actual subtitles info-->
+        <track label="English" kind="subtitles" srclang="en" src="../subtitles/subtitles.vtt" default>
+        
         <p> Your browser does not support the video tag. </p>
         <!-- Text btw video tag will only be displayed in browsers that do not support-->
     </video>
@@ -44,6 +54,9 @@
             video/webm: WebM video files
             video/mov: MOV video files
     -->
+    
+    <!--WebVTT
+    Simple text files contain actual subtitle data follow specific format -->
 
     <!-- AUDIO -->
     <audio controls>
