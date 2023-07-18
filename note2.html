@@ -76,9 +76,9 @@
             <label>
                 Color: <input type="color" name="color" value="#ff0000" />
                 <input type="color" autofocus /> (Hexadecimal code such as #ADD8E6)
-                <!--Autofocus:an optional attribute that can be used in only one input element on a form
-                 automatically gives the focus to the input element, 
-                 allowing the user to begin typing in that element immediately-->
+                <!--Autofocus:an optional boolean attribute that can be used in only one input element on a form
+                    automatically gives the focus to the input element, 
+                    allowing the user to begin typing in that element immediately-->
 
             </label>
         </p>
@@ -126,7 +126,7 @@
             </label>
         </p> <!--hour:min:second/fraction of sec -->
 
-        <!-- ================= Week Input Type ================= -->
+        <!-- ================= Week & Month Input Type ================= -->
         <p>
 
             <label>Week:
@@ -160,11 +160,19 @@
         </p>
 
         <!-- ================= Slider Control =================
-                displays a numberic slider -->
+            displays a numberic slider 
+            defines a control for entering a number whose exact value is not important
+            Default range is 0 to 100
+            max - specifies the maximum value allowed
+            min - specifies the minimum value allowed
+            step - specifies the legal number intervals
+            value - Specifies the default value
+        -->
         <p>
             <label>Range:</label>
             <input type="range" min="0" max="20" value="10" />
         </p>
+
 
         <!-- ================= Search Input Type =================
                 provide a search field for entering a query -->
@@ -313,4 +321,5 @@
 
     </form>
 </body>
+
 </html>
