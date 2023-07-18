@@ -4,26 +4,74 @@
 <html>
 
 <body>
-    <!-- FORM -->
+    <!-- =================  FORM 1 =================-->
     <form method="post">
         First name: <input type="text" name="fname"><br>
         Last name: <input type="text" name="lname"><br>
-
-        <button type="button" value="Add">Add</button>
-        <button type="submit" value="Submit">Submit</button>
-        <button type="reset" value="Reset">Reset</button>
-
-        <button type="submit" value="Add">
-            <img src="buttons/contact.jpg" width="65" height="50" alt="Contact Me" />
-        </button>
     </form>
 
+    <!-- =================  FORM 2 =================-->
     <hl>New HTML5 Input Types Demo</hl>
-    <form method="post" action="http://www.facebook.com" autocomplete="on">
-        <!--AUTOCOMPLETE: Automatically fills in the data when the user returns to a form submitted previously and begins typing in the input element
-        For entire form or just for specific elements (off for password input)
-        Works only if specify a name or id attribute for each input element
-    -->
+    <!--method: specifies HTTP method to send form data to the server (URL variables = get, HTTP post transaction = post)
+        action: specifies where to send the form data when a form is submitted
+        GET - appends form data to the URL in name/value pairs (used to request data from a specified resource)
+                Limited length of URL (2048 characters)
+                Can be bookmarked (useful for form submissions), cached
+                Remains in browser history
+                Better for non-secure/non-sensitive data (query string in Google)
+        POST - sends/appends form data in the body of the HTTP request to create/update resource
+                No size limit
+                Cannot be bookmarked, cached
+                Does not remain in browser history
+                Better for sensitive data (data is not shown in URL)
+        autocomplete: Automatically fills in the data when the user returns to a form submitted previously and begins typing in the input element
+            For entire form or just for specific elements (off for password input)
+            Works only if specify a name or id attribute for each input element
+        -->
+    <form method="post" action="http://www.domain.com" autocomplete="on">
+
+        <!--
+            Two way to use <label> tag: 
+            1. Need a for attribute whose value is same as input id
+            2. <input> tag use directly inside the <label> tag = for and id attributes are not needed because the association is implicit
+            
+            type: indicates the type of input control and for text input control it will be set to text
+            name: give name to the control which is sent to the server to be recognized and get the value
+            value: specifies the initial value of the input control
+            size: specifies the width of the input control in characters
+            maxlength: specifies the maximum number of characters allowed in the input control
+            placeholder: specifies a short hint that describes the expected value of the input control
+            required: specifies that the input control must be filled out before submitting the form
+            -->
+        <!-- ================= HIDDEN =================
+                input type="hidden"
+                include data that cannot be seen or modified by users when a form is submitted-->
+        <p>
+            <input type="hidden" name="recipient" value="deitel@deitel.com" />
+        </p>
+
+        <!-- ================= TEXT ================= -->
+        <p>
+            <label>Name:
+                <input name="name" type="text" size="25" required />
+            </label>
+        </p>
+
+
+        <!-- ================= <textarea> =================
+            - Create multiline text box
+                name: give name to the control which is sent to the server to be recognized and get the value
+                rows: indicates the number of rows of text area box
+                cols: indicates the number of columns of text area box
+            -->
+        <p>
+            <label>Comments:<br />
+                <textarea name="comments" rows="4" cols="36" placeholder="Enter comments here."></textarea>
+            </label>
+        </p>
+
+
+        <!-- ================= COLOR ================= -->
         <p>
             <label>
                 Color: <input type="color" name="color" value="#ff0000" />
@@ -34,6 +82,9 @@
 
             </label>
         </p>
+
+        <!-- ================= EMAIL ================= 
+            Inserts a textbox whose display is masked with asterisk characters -->
         <p>
             <label>Email:
                 <input type="email" placeholder="name@domain.com" required /> (name@domain.com)
@@ -44,6 +95,8 @@
                 -->
             </label>>
         </p>
+
+        <!-- ================= DATE ================= -->
         <p>
             <label> Date:
                 <input type="date" /> (yyyy-mm-dd)
@@ -66,13 +119,16 @@
                 <!--Enter date and time in a single control (text field)-->
             </label>
         </p>
-        <p> <!-- Time Input-->
+
+        <p> <!-- ================= Time Input =================-->
             <label>Time:
                 <input type="time" />(hh:mm:ss. ff)
             </label>
         </p> <!--hour:min:second/fraction of sec -->
+
+        <!-- ================= Week Input Type ================= -->
         <p>
-            <!-- Week Input Type-->
+
             <label>Week:
                 <input type="week" />
                 (yyyy-Wnnm such as 2012-W01)
@@ -88,8 +144,9 @@
                 <input type="month" /> (yyyy-mm)
             </label>
         </p>
+
+        <!-- ================= Enter Numerical Value =================-->
         <p>
-            <!-- Enter Numerical Value-->
             <label for="number">Number:</label>
             <input type="number" min="0" max="7" step="1" value="4" />
             <!-- step: specifies the interval between legal numbers
@@ -101,32 +158,43 @@
             spinner control includes only valid numbers (in Chrome & Opera)
         -->
         </p>
+
+        <!-- ================= Slider Control =================
+                displays a numberic slider -->
         <p>
-            <!-- Slider Control: displays a numberic slider -->
             <label>Range:</label>
             <input type="range" min="0" max="20" value="10" />
         </p>
+
+        <!-- ================= Search Input Type =================
+                provide a search field for entering a query -->
         <p>
-            <!-- Search Input Type: provide a search field for entering a query -->
             <label>Search:
                 <input type="search" placeholder="search query" />
             </label> (Enter your search query here.)
         </p>
-        <p> <!-- Tel Input : enter tel num (display keypad)-->
+
+        <!-- ================= Tel Input =================
+            enter tel num (display keypad)-->
+        <p>
             <label>Tel:
                 <input type="tel" placeholder="(###) ###-####" pattern="\(\d{3}\) + \d{3}-\d{4}" required />
                 (###)###-####
             </label>
             <!-- Do not self validate - Add pattern attribute to check format-->
         </p>
-        <p> <!-- URL input-->
+
+        <!-- ================= URL input =================-->
+        <p>
             <label>URL:
                 <input type="url" placeholder="http://www.domain.com" />
                 (http://www.domainname.com)
             </label> <!-- Validate proper format instead of validity (existing)-->
         </p>
 
-        <!--Text List/ Data list Elements: Provide input option-->
+
+        <!--================= Text List/ Data list Elements =================
+            Provide input option-->
         <p>
             <label for="txtlist"> Birth Month (Datalist):
                 <input type="text" id="txtlist" placeholder="Select a month" list="months" />
@@ -147,16 +215,102 @@
             </label>
         </p><!-- Datalist values filtered by what's been typed so far for autocomplete
         -->
+
+
+        <!-- ================= Select Box/ Drop Down Box =================
+            - provides option to list down various options in the form of drop down list, 
+            from where a user can select one or more options
+            
+            <select> element: used to create a drop down list
+                name: give name to the control which is sent to the server to be recognized and get the value
+                size: specify the number of options that should be visible at a time (scrolling list box)
+                multiple: allow multiple options to be selected
+            <option> element: used to define an option that can be selected
+                value: indicate the value used if the option is selected
+                selected: indicate the default value of the option
+        -->
         <p>
+            <label>Rate our site:
+                <!-- the <select> tag presents a drop-down -->
+                <!-- list with choices indicated by the -->
+                <!-- <option> tags -->
+                <select name="rating">
+                    <option selected>Amazing</option>
+                    <option>10</option>
+                    <option>9</option>
+                    <option>8</option>
+                    <option>7</option>
+                    <option>6</option>
+                    <option>5</option>
+                    <option>4</option>
+                    <option>3</option>
+                    <option>2</option>
+                    <option>1</option>
+                    <option>Awful</option>
+                </select>
+            </label>
+        </p>
+
+
+        <!-- ================= Radio Buttons =================
+            - Used when choosing one option out of many options 
+            type: indicate the type of input control and for checkbox input control
+            name: give name to the control which is sent to the server to be recognized and get the value
+                (group of radio buttons with the same name, each group has its own name)
+            value: indicate the value used if the radio box is selected
+                (unique value for each radio button in the same group)
+            checked: indicate the default value of the radio button
+        -->
+        <p>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label><br>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label><br>
+            <input type="radio" id="other" name="gender" value="other">
+            <label for="other">Other</label>
+        </p>
+
+
+        <!-- ================= Check Box =================
+            - Used when more then one option is required to be selected
+        -->
+        <p> <strong>Things you liked:</strong><br />
+            <label>Site design
+                <input name="thingsliked" type="checkbox" value="Design" /></label>
+            <label>Links
+                <input name="thingsliked" type="checkbox" value="Links" /></label>
+            <label>Ease of use
+                <input name="thingsliked" type="checkbox" value="Ease" /></label>
+            <label>Images
+                <input name="thingsliked" type="checkbox" value="Images" /></label>
+            <label>Source code
+                <input name="thingsliked" type="checkbox" value="Code" /></label>
+        </p>
+
+
+        <!-- ================= Clickable Button =================
+            <button>: trigger a client-side script when clicked
+                can put content (text/images)
+                Style with CSS (https://www.w3schools.com/css/css3_buttons.asp)
+            submit: submit the form automatically
+            reset: reset the form controls to their initial values
+        -->
+        <p>
+            <button type="button">Click Me!</button>
+            <button type="button" value="Add">Add</button>
+            <button type="submit" value="Submit">Submit</button>
+            <button type="reset" value="Reset">Reset</button>
+
+            <button type="submit" value="Add">
+                <img src="buttons/contact.jpg" width="65" height="50" alt="Contact Me" />
+            </button>
+
+
             <input type="submit" value="Submit" formnovalidate />
             <!-- formnovalidate: prevents the form from being validated when submitted -->
-            <input type = "reset" value="Clear"/>
+            <input type="reset" value="Clear" />
         </p>
 
     </form>
-
-
-
 </body>
-
 </html>
