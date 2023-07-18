@@ -1,0 +1,75 @@
+<!--NOTE 4: MULTIMEDIA-->
+<!--Image, music, sound, videos, records, films, animation-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Multimedia</title>
+</head>
+
+<body>
+    <!-- VIDEO -->
+    <!--M4V (.m4v) is developed by Apple Inc for apple products
+        MP4 (.mp4) is developed by MPEG & played by most, great compression, low bandwidth requriement-->
+    <video controls poster="img.jpg" width="160" height="150">
+        <!--Always include width and height, might flicker if not-->
+        <source src="video.mp4" type="video/mp4">
+        <source src="video.ogg" type="video/ogg">
+        <source src="video.webm" type="video/webm">
+        <source src="video.mov" type="video/mov">
+        <a href="video.mp4">Download the video</a> (.mp4)
+        <p> Your browser does not support the video tag. </p>
+        <!-- Text btw video tag will only be displayed in browsers that do not support-->
+    </video>
+
+    <!--Controls: Display video/audio control (play, pause, volume)
+        Source element: specify alt video/audio files which the browser may choose from (first recognized format)
+            Defines multiple media resources for media elements (<video> and <audio>)
+        Autoplay: Start a video automatically once ready
+        loop: start over again every time it is finished
+        muted: Specifies the audio output should be muted
+        poster: Specifies an image to be shown while the video is downloading, or until the user hits the play button
+        preload: Specifies if and how the author thinks the video/audio should be loaded when the page loads
+            auto: The video should be loaded entirely (if possible) when the page loads
+            metadata: Only metadata should be loaded when the page loads
+            none: The video should not be loaded when the page loads
+        width: Specifies the width of the video player
+        height: Specifies the height of the video player
+        src: Specifies the URL/address of the video/audio file
+        type: Specifies the media type of the video file
+            video/mp4: MP4 video files
+            video/ogg: OGG video files
+            video/webm: WebM video files
+            video/mov: MOV video files
+    -->
+
+    <!-- AUDIO -->
+    <audio controls>
+        <source src="soundloop.mp3" type="audio/mpeg">
+        <source src="soundloop.ogg" type="audio/ogg">
+        <a href="soundloop.mp3">Download the audio</a> (.mp3)
+    </audio>
+
+    <!-- HTML PLUG-INS -->
+    <!--Embed Adobe Flash Player, Adobe Reader, Windows Media Player, Apple Quicktime-->
+    <!-- Added with: <object>/ <embed> -->
+    <!-- <embed> element: embeds external application or interactive content into a web page
+        <object> element: defines an embedded object within an HTML document, supported by all browsers
+        <param> element: defines parameters for an object
+        <iframe> element: embeds another document into the current HTML document
+        <canvas> element: used to draw graphics, on the fly, via scripting (usually JavaScript)
+        <svg> element: defines graphics for the web
+        <math> element: defines mathematical equations-->
+    <object data="flash.swf" width="550" height="400"></object>
+    <embed type="appliation/x-shockwave-flash" src="flash.swf" 
+    width="550" height="400" quality="high" title="Title"></embed>
+</body>
+
+</html>
+
+<!--Multimedia Accessibility
+    Transcript: text version of the audio content (for most W3C media, recordings of teleconferences)
+    Captions: text version of the audio content, synchronized with the video
+-->

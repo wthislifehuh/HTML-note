@@ -1,0 +1,162 @@
+<!-- NOTE 2: FORM -->
+
+<!DOCTYPE html>
+<html>
+
+<body>
+    <!-- FORM -->
+    <form method="post">
+        First name: <input type="text" name="fname"><br>
+        Last name: <input type="text" name="lname"><br>
+
+        <button type="button" value="Add">Add</button>
+        <button type="submit" value="Submit">Submit</button>
+        <button type="reset" value="Reset">Reset</button>
+
+        <button type="submit" value="Add">
+            <img src="buttons/contact.jpg" width="65" height="50" alt="Contact Me" />
+        </button>
+    </form>
+
+    <hl>New HTML5 Input Types Demo</hl>
+    <form method="post" action="http://www.facebook.com" autocomplete="on">
+        <!--AUTOCOMPLETE: Automatically fills in the data when the user returns to a form submitted previously and begins typing in the input element
+        For entire form or just for specific elements (off for password input)
+        Works only if specify a name or id attribute for each input element
+    -->
+        <p>
+            <label>
+                Color: <input type="color" name="color" value="#ff0000" />
+                <input type="color" autofocus /> (Hexadecimal code such as #ADD8E6)
+                <!--Autofocus:an optional attribute that can be used in only one input element on a form
+                 automatically gives the focus to the input element, 
+                 allowing the user to begin typing in that element immediately-->
+
+            </label>
+        </p>
+        <p>
+            <label>Email:
+                <input type="email" placeholder="name@domain.com" required /> (name@domain.com)
+                <!--Enter email address/ list of email address separated by commas (text field)
+                    Only check if the email is in proper format (not validate existing email)
+                    Placeholder: light-grey temporary text that is displayed in the input field when the page is loaded
+                    When get focus, 
+                -->
+            </label>>
+        </p>
+        <p>
+            <label> Date:
+                <input type="date" /> (yyyy-mm-dd)
+                <!-- Firefox & Internet Explorer: text field to enter
+                    Chrome & Safari: spinner control - up-down arror to select a date
+                    Opera: calender from which can choose a date-->
+            </label>
+        </p>
+        <p>
+            <label>Datetime:
+                <input type="datetime" />
+                (yyyy-mm-ddThh:mm+ff:gg)
+                <!--date, time (hour, min, sec, fraction of sec), time zone (UTC)-->
+            </label>
+        </p>
+        <p>
+            <label>
+                Datetime-local: <input type="datetime-local" />
+                (yyyy-mm-ddThh:mm)
+                <!--Enter date and time in a single control (text field)-->
+            </label>
+        </p>
+        <p> <!-- Time Input-->
+            <label>Time:
+                <input type="time" />(hh:mm:ss. ff)
+            </label>
+        </p> <!--hour:min:second/fraction of sec -->
+        <p>
+            <!-- Week Input Type-->
+            <label>Week:
+                <input type="week" />
+                (yyyy-Wnnm such as 2012-W01)
+            </label>
+            <!--Select year and week number
+            nn = 01-53 (2012-W01: First week of 2012)
+            Text fieldL IE, Firefox, Safari
+            Updown control: Chrome
+            Week control that brings up calendar: Opera-->
+        </p>
+        <p>
+            <label>Month:
+                <input type="month" /> (yyyy-mm)
+            </label>
+        </p>
+        <p>
+            <!-- Enter Numerical Value-->
+            <label for="number">Number:</label>
+            <input type="number" min="0" max="7" step="1" value="4" />
+            <!-- step: specifies the interval between legal numbers
+            if step="3" , legal numbers could be -3, 0, 3, 6, etc
+            (increment in which the numbers increase)
+            value: specifies the default value of the input field
+            min: specifies the minimum valid number
+            max: specifies the maximum valid number
+            spinner control includes only valid numbers (in Chrome & Opera)
+        -->
+        </p>
+        <p>
+            <!-- Slider Control: displays a numberic slider -->
+            <label>Range:</label>
+            <input type="range" min="0" max="20" value="10" />
+        </p>
+        <p>
+            <!-- Search Input Type: provide a search field for entering a query -->
+            <label>Search:
+                <input type="search" placeholder="search query" />
+            </label> (Enter your search query here.)
+        </p>
+        <p> <!-- Tel Input : enter tel num (display keypad)-->
+            <label>Tel:
+                <input type="tel" placeholder="(###) ###-####" pattern="\(\d{3}\) + \d{3}-\d{4}" required />
+                (###)###-####
+            </label>
+            <!-- Do not self validate - Add pattern attribute to check format-->
+        </p>
+        <p> <!-- URL input-->
+            <label>URL:
+                <input type="url" placeholder="http://www.domain.com" />
+                (http://www.domainname.com)
+            </label> <!-- Validate proper format instead of validity (existing)-->
+        </p>
+
+        <!--Text List/ Data list Elements: Provide input option-->
+        <p>
+            <label for="txtlist"> Birth Month (Datalist):
+                <input type="text" id="txtlist" placeholder="Select a month" list="months" />
+                <datalist id="months">
+                    <option value="January">
+                    <option value="February">
+                    <option value="March">
+                    <option value="April">
+                    <option value="May">
+                    <option value="June">
+                    <option value="July">
+                    <option value="August">
+                    <option value="September">
+                    <option value="October">
+                    <option value="November">
+                    <option value="December">
+                </datalist>
+            </label>
+        </p><!-- Datalist values filtered by what's been typed so far for autocomplete
+        -->
+        <p>
+            <input type="submit" value="Submit" formnovalidate />
+            <!-- formnovalidate: prevents the form from being validated when submitted -->
+            <input type = "reset" value="Clear"/>
+        </p>
+
+    </form>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,185 @@
+<!--NOTE 1: HTML Basics-->
+
+<!--HTML = Hypertext Markup Language (collection of markup tags)
+specifies the structure and content of documents that are displayed in web browsers.-->
+
+<!DOCTYPE html>
+<!--Document Type Declaration 
+    Reason:
+    For browser render page in standard mode 
+    Some browsers operate in quirks mode to maintain backward compatibility with web pages that are not up-to-date with the latest standards. 
+-->
+
+<!--Comment -->
+<html> <!--Start tag -->
+
+<head>
+    <meta charset=“utf–8”> <!--Character set-->
+    <title> TITLE </title> <!--Nested element: appear in the browser tab -->
+    <!--<meta> tags provide search engines with info used to catalog a site
+        Is not visible to users-->
+
+    <!-- Keyword: List of words which are compared with search requests-->
+    <meta name="keywords" content="web page, design, HTML5, tutorials, UTAR, Malaysia" />
+    <!--Description: 3-4 lines descp , sometimes displayed as search result-->
+    <meta name="description" content="This is the description of the webpage" />
+</head>
+
+<body>
+    <!--Heading -->
+    <h1> Level 1 Heading </h1>
+    <h2> Level 2 Heading </h2>
+    <h3> Level 3 Heading </h3>
+    <h4> Level 4 Heading </h4>
+    <h5> Level 5 Heading </h5>
+    <h6> Level 6 Heading </h6>
+    <p> Paragraph Element </p>
+    <pre> <!-- Preserving White Space  --> 
+          Preformatted text 
+    </pre>
+    <hr> <!--Horizontal Rule - Line with extra space above and below it(avoid using)-->
+    <p>
+        <!-- HTML TAGS -->
+        <br> Line Break
+        <strong> Strong Element &copy </strong> <!--Strong emphasis + Special Character -->
+        <small> Smaller text </small>
+        <del> To strike through text </del>
+        <ins> To specify a block of inserted text </ins>
+        <sub> To subscript text </sub>
+        <sup> To superscript text </sup>
+        <em> Emphasis Element </em> <!--Emphasis -->
+        <b> Bold Element </b> <!--Define Bold text without any extra importance -->
+        <i> Italic Element </i> <!--Italic text -->
+        <u> Underline Element </u> <!--Underline text -->
+        <mark> Mark Element </mark> <!--Highlight text -->
+        <code> Code Element </code> <!--Code snippet -->
+        <kbd> Keyboard Element </kbd> <!--Keyboard input -->
+
+
+        <!--Relative URLs -->
+        <!--Attribute="value" -->
+        <!--Hypertext reference - Strong element: created using anchor element -->
+        <a href=“http://www.google.com”> Link to Google </a>
+        <a href="mailto:2103160@1utar.my">Link to UTAR EMAIL</a>
+        <!--Same folder -->
+        <a href="secondpage.html">Link to Second Page</a>
+        <!--Child folder -->
+        <a href="folderName/fileName">Link to Child Folder</a>
+        <!--Parent folder -->
+        <a href="../fileName">Link to Parent Folder</a>
+        <!--Grandparent Folder -->
+        <a href="../../fileName">Link to Grandparent Folder</a>
+
+        <!--Image -->
+        <img src=“image.jpg” width="92" height="120" alt=“image” />
+        <!--alt = alternative text, display when it cannot render an image -->
+
+        <!--Using Image as hyperlink -->
+        <a href="links.html">
+            <img src="image.jpg" width="92" height="120" alt="image">
+    </p>
+
+    <!-- Internal Linking-->
+    <!--Link to a specific location within the same page -->
+    <a href="#top">Link to Top</a>
+    <!-- An internal link's address is "#id"-->
+    <p> <a href="#bugs">Go to <em>Favourite Bugs</em></a></p>
+
+    <!-- id attributes creates an internal hyperlink destination-->
+    <hl id="features"> The best features of the Internet </hl>
+
+
+    <!-- List -->
+    <ul> Unordered List <!-- List begin with bullet symbol -->
+        <li> Item 1 </li> <!--Entry is li(list item) element-->
+        <li> Item 2 </li>
+        <li> Item 3
+            <!--Nested Unordered List = Use different bullet -->
+            <ul>
+                <li> Item 3.1 </li>
+                <li> Item 3.2 </li>
+                <li> Item 3.3 </li>
+            </ul>
+        </li>
+    </ul>
+    <ol> Ordered List <!-- List begin with number -->
+        <li> Item 1 </li>
+        <li> Item 2 </li>
+        <li> Item 3 </li>
+    </ol>
+    <dl> Definition/ Description List
+        <dt> Terms/Name 1 </dt>
+        <dd> Definition 1: Describe each term </dd>
+        <dt> Term 2 </dt>
+        <dd> Definition 2 </dd>
+    </dl>
+
+    <!--Table -->
+    <table border="1">
+        <caption> Table Caption </caption> <!--TITLE -->
+        <!--Format table header area -->
+        <thead>
+            <tr> <!--<tr> inserts a table row/ defines individual table rows -->
+                <th> Table Heading </th> <!-- insert a heading cell -->
+
+                <!-- Merge 2 rows
+                rowspan -Allows a single table cell to span the height of more than one cell or row.-->
+                <th rowspan="2">
+                    <img src="jj.png" width="205" height="167" alt="Pic">
+                </th>
+
+                <!-- Merge 4 columns
+                colspan - Allows a single table cell to span the width of more than one cell or column.-->
+                <th colspan="4">
+                    <strong> Comparison </strong> <br>
+                    Approximate as of 10/2023
+                </th> <!-- colspan = number of columns to merge -->
+            </tr>
+
+        </thead>
+        <!--All table content is enclosed within the <tbody>-->
+        <tbody>
+            <tr> <!-- Row 1 -->
+                <td> Table Data </td> <!-- Column 1-->
+                <td> Table Data </td> <!-- Column 2-->
+            </tr>
+            <tr> <!-- Row 2 -->
+                <td> Table Data </td>
+                <td> Table Data </td>
+            </tr>
+        </tbody>
+
+        <!--Appears last in the table-->
+        <!--It formats table footer -->
+        <tfoot>
+            <tr> <!--<tr> Defines individual table rows-->
+                <td> Table Footer </td>
+                <td> Table Footer </td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <!--Button -->
+    <button type="button">Click Me!</button>
+
+</body>
+
+</html> <!--End tag -->
+
+<!--Void elements = do not have end tags 
+Contain only attributes and do not have markup text (text is not between start and end tags)
+Terminated by />
+meta    -  <meta charset="utf-8">
+img     -  <img src = “jhtp.png” alt = "Exp"/>
+input   -  <input type="submit" value="Ok" />
+hr      -  <hr />. 
+br      -  <br />.
+-->
+
+
+<!-- Special Characters Entities
+    Character entity reference = &code for representing special characters (cannot be rendered)
+&gt     - greater than
+&reg    - registered trademark
+&copy   - copyright
+-->

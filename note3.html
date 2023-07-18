@@ -1,0 +1,101 @@
+<!-- NOTE 3: PAGE STRUCTURE -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Page Structure</title>
+</head>
+
+<body>
+    <header> <!--Header creates header for the page-->
+        <h1>Page Structure</h1>
+        <img src="logo.png" alt="Logo" width="100" height="100">
+        <time>2023-07-26</time> <!-- Identify date/time-->
+    </header>
+
+    <!--Begin Section 1 - Navigation-->
+    <section id="1">
+        <h2>Section 1 - Navigation</h2>
+        <nav> <!--Nav element groups navigation links-->
+            <h2> LINKS </h2>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="page2.html">Page 2</a></li>
+                <li><a href="page3.html">Page 3</a></li>
+            </ul>
+        </nav>
+    </section>
+
+    <!--Begin Section 2 -  Article-->
+    <section id="2">
+        <article> <!--Article element groups related content-->
+            <header>
+                <h2>Section 2 - Article
+                    <em> <a href="http://www.fb.com">Article</a></em>
+                </h2>
+            </header>
+
+            <p> Article content
+                <ul>
+                    <li> Item 1 </li>
+                    <li> Item 2 </li>
+                    <li> Item 3 </li>
+                </ul>
+                <!-- Summary element represents a summary for the content of the details element
+                    Display right-pointing arrow next to summary (click to reveal content)-->
+                <details>
+                    <summary>Details</summary>
+                    <p>Details content</p>
+                    <ul>
+                        <li> Item 1 </li>
+                        <li> Item 2 </li>
+                        <li> Item 3 </li>
+                    </ul>
+                </details>
+            </p>
+        </article>
+
+        <aside> <!--Aside element represents a portion of a document whose content is only indirectly related to the document's main content
+            (content in a sidebar) separated from the flow of text
+            E.g. background story in a news-->
+            <h2>Aside</h2>
+            <p> Aside content: The aside element is not formatted by the browser </p>
+        </aside>
+
+    </section>
+
+    <!--Begin Section 3 -  Figure-->
+    <section id="3">
+        <h2>Section 3 - Figure</h2>
+        <figure> <!--figure element describes the image/chart/table-->
+            <img src="figure.png" alt="This is the image" />
+            <!--figure caption-->
+            <figcaption><em> This is the caption </em>for image</figcaption>
+        </figure>
+    </section>
+
+    <!--Begin Section 4 - Scale-->
+    <section id="4">
+        <h2>Section 4 - Meter element</h2>
+        <p> Scale </p>
+        <!-- Meter element represents a scale within a range -->
+        0 <meter min="0" nax="54" value="14"></meter> 54
+        <!-- Showing 14 -->
+    </section>
+
+    <!-- FOOTER: contain info like author name, copyright, etc -->
+        <footer> <!--Footer element represents a footer for its nearest sectioning content or sectioning root element-->
+            <h2> Footer content </h2>
+            <h6> &copy; 2022-2023 by Jo &amp; Associ <wbr> atesm Inc. All Rights Reserved. </h6>
+            <!--wbr element indicates the appropriate place to break a word when the text wraps multiple lines-->
+            <!-- mark element highlights the text that is enclosed in the element-->
+            <address>
+                Contact us at <a href="mailto:2103160@1utar.my">Mail Address</a>
+            </address>
+            <!--address represents contact info for doc/nearest body element/ article-->
+        </footer>
+</body>
+
+</html>
