@@ -14,7 +14,21 @@ specifies the structure and content of documents that are displayed in web brows
 <html> <!--Start tag -->
 
 <head>
+    <!-- Metadata -->
+    <!-- data(info) about data (machine parsable, will not be displayed on screen)
+    Used to specify page description, keywords, author of the document, last modified...
+    Used by browsers (how to display content or reload page), search engines (keywords) 
+    Always go inside <head>
+    Always passed as name/value pairs
+    Content attribute MUST be defined if the name or the http-equiv attribute is defined-->
     <meta charset=“utf–8”> <!--Character set-->
+    <meta name="description" content="This is the description of the webpage" />
+    <meta name="keywords" content="web page, design, HTML5, tutorials, UTAR, Malaysia" />
+    <meta name="author" content="UTAR" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!--For responsive web design-->
+
+
+    <!-- TITLE -->
     <title> TITLE </title> <!--Nested element: appear in the browser tab -->
     <!--<meta> tags provide search engines with info used to catalog a site
         Is not visible to users-->
@@ -158,9 +172,6 @@ specifies the structure and content of documents that are displayed in web brows
             </tr>
         </tfoot>
     </table>
-
-    <!--Button -->
-    <button type="button">Click Me!</button>
 
 </body>
 
