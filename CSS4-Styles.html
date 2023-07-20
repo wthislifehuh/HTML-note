@@ -1,0 +1,294 @@
+<!-- CSS NOTE 4: Text/Box Style -->
+
+<!-- 
+    ================= Color =================
+    color names, hexadecimal, rgb, rgba
+    alpha: [opacity] 0.0 (transparent) to 1.0 (opaque)
+        Exp: color: rgba(0, 0, 255, 0.5); /* 50% transparent blue */
+    hsl/hsla : hue, saturation, lightness, alpha
+        hue: [shade] 0-360 degrees on color wheel
+        saturation: [intencity of hue] 0% (gray) to 100% (full color)
+        lightness: [intencity of light/luminance] 0% (black) to 100% (white)
+        Exp: color: hsl(240, 100%, 50%); /* blue */
+        https://hslpicker.com/
+-->
+
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Text</title>
+    <style type="text/css">
+        /* ================= Text Shadow =================
+            text-shadow: horizontal offset, vertical offset, blur radius, color
+                Horizontal offset of the shadow: number of pixel appear to the left/right of the text
+                Vertical offset of the shadow: number of pixel appear to the top/bottom of the text
+                Blur radius: number of pixel the shadow will be blurred (0px = sharp edge/no blur)
+                Color: color of the shadow
+        */
+        h1 {
+            text-shadow: -4px 4px 6px dimgrey, 4px -4px 6px blue;
+            /* add shadow */
+            font-size: 400%;
+            /* increasing the font size */
+        }
+
+
+        /* ================= Rounded Corners ================= 
+            border-radius: value greater than half of the shortest side length produce completely round endn
+                border-top-left-radius, border-top-right-radius, border-bottom-left-radius, border-bottom-right-radius
+            4 values: top-left, top-right, bottom-right, bottom-left
+            3 values: top-left, top-right & bottom-left, bottom-right
+            2 values: top-left & bottom-right, top-right & bottom-left
+            1 value: all corners (rounded equally)
+        */
+        div {
+            border: 3px solid navy;
+            padding: 5px 20px;
+            background: lightcyan;
+            width: 200px;
+            height: 80px;
+            text-align: center;
+            border-radius: 15px;
+            /* adding rounded corners */
+            margin-bottom: 20px;
+        }
+
+        #round2 {
+            border: 3px solid navy;
+            padding: 5px 20px;
+            background: lightcyan;
+            width: 200px;
+            text-align: center;
+            border-radius: 50px;
+            /* increasing border-radius */
+        }
+
+        /* ================= Box Shadows ================= 
+            box-shadow: horizontal offset, vertical offset, blur radius, color
+            horizontal offset: number of pixel appear to the left/right of the box
+            vertical offset: number of pixel appear to the top/bottom of the box
+            blur radius: number of pixel the shadow will be blurred (0px = sharp edge/no blur)
+            color: color of the shadow
+        */
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: plum;
+            box-shadow: 25px 25px 50px dimgrey;
+            float: left;
+            margin-right: 120px;
+            margin-top: 40px;
+        }
+
+        #box2 {
+            width: 200px;
+            height: 200px;
+            background-color: plum;
+            box-shadow: -25px -25px 50px dimgrey;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        /* ================= Linear Gradients =================
+            Vendor prefixes: -ms-(Internet Explorer), -moz-, -webkit-, -o-(Opera, Open Mobile)
+                Not available for every browser (include multiple previxes to ensure compatibility)
+                Place vendor-prefixed properties before standard properties in styles
+
+            vertical, horizontal, diagonal
+
+            For WebKit browsers (Safari, Chrome) = -webkit-gradient() function
+            background: -webkit-gradient(linear[left/right top], start point, end point, color-stop(percentage/location of stop, color), color-stop(percentage, color), ...);
+            
+            For Mozilla browsers (Firefox) = -moz-linear-gradient() function
+            background: -moz-linear-gradient(direction[left, top left, top center], color-stop(percentage, color), color-stop(percentage, color), ...);
+            
+            Standard syntax = linear-gradient() function
+            background: linear-gradient(direction[135deg, left, top], color-stop(percentage, color), color-stop(percentage, color), ...);
+        */
+
+        div {
+            width: 150px;
+            height: 150px;
+            border: 3px solid navy;
+            padding: 5px 20px;
+            text-align: center;
+            background: -webkit-gradient(linear, center top, center bottom,
+                    color-stop(15%, White), color-stop(50%, lightsteelblue),
+                    color-stop(75%, navy));
+            background: -moz-linear-gradient(top center, white 15%, lightsteelblue 50%, navy 75%);
+            background: linear-gradient(top, White 15%, lightsteelblue 50%, navy 75%);
+            float: left;
+            margin-right: 15px;
+        }
+
+        #horizontal {
+            width: 150px;
+            height: 150px;
+            border: 3px solid orange;
+            padding: 5px 20px;
+            text-align: center;
+            background: -webkit-gradient(linear, left top, right top,
+                    color-stop(15%, white), color-stop(50%, yellow),
+                    color-stop(75%, orange));
+            background: -moz-linear-gradient(left, white 15%, yellow 50%, orange 75%);
+            background: linear-gradient(left, white 15%, yellow 50%, orange 75%);
+            margin-right: 15px;
+        }
+
+        #diagonal {
+            width: 200px;
+            height: 200px;
+            border: 3px solid purple;
+            padding: 5px 20px;
+            text-align: center;
+            background: -webkit-gradient(linear, left top, right bottom,
+                    color-stop(15%, white), color-stop(50%, plum),
+                    color-stop(75%, purple));
+            background: -moz-linear-gradient(top left, white 15%, plum 50%, purple 75%);
+            background: linear-gradient(135deg, white 15%, plum 50%, purple 75%);
+        }
+
+
+        /* ================= Radial Gradients =================
+            Similar to linear gradients: the changes gradually from an inner point(start) to outer circle(end)
+        */
+
+        div {
+            width: 200px;
+            height: 200px;
+            padding: 5px;
+            text-align: center;
+            background: -webkit-radial-gradient(center, yellow, red);
+            background: -moz-radial-gradient(center, yellow, red);
+            background: radial-gradient(center, yellow, red);
+        }
+
+        /* ================= Text Stroke =================
+            For webkit only: add outline around text
+            -webkit-text-stroke: [width] [color];
+        */
+
+        h1 {
+            color: lightcyan;
+            -webkit-text-stroke: 2px black;
+            /* vendor prefix */
+            font-size: 500%;
+            /* increasing the font size */
+        }
+
+        /* ================= Reflection =================
+            For webkit only: add simple reflection to the image using -webkit-box-reflect property
+            -webkit-box-reflect: [direction] [offset] [mask-box-image]
+                direction: above, below, left, right
+                offset: number of pixel between the image and the reflection
+                mask-box-image: image to use as the reflection mask
+        */
+        img {
+            margin-right: 30px;
+        }
+
+        img.below {
+            -webkit-box-reflect: below 50px linear-gradient(to bottom,
+                    transparent, white);
+        }
+
+        img.right {
+            -webkit-box-reflect: right 5px -webkit-gradient(linear, right top, left top,
+                    from(transparent), to(white));
+        }
+
+        /* ================= Image Border =================
+            border-image: [source] [slice] [repeat]
+                source: url of the image to use as the border
+                slice: express 4 space-separated values in pixel (not negative values)
+                    4 values: top, right, bottom, left
+                    3 values: top, right & left, bottom
+                    2 values: top & bottom, right & left
+                repeat: stretch, repeat, round, space, initial, inherit
+                    stretch - (default) stretch & distort the image to fill the border (leaving corners of border image unchanged)
+                    repeat -  repeat/scale/tile the regions of image to fill the border (leaving corners of border image unchanged)
+                    round - repeat/scale/tile image to fill the border (rescale to fit the area with a whole number of tiles)
+                    space - repeat/scale/tile image to fill the border (spacing the border image evenly, distribute extra space if cannot fit with whole number of tiles)
+                    initial - set this property to its default value
+                    inherit - inherit this property from its parent element
+        */
+        div {
+            border: 30px solid #ffffff;
+            width: 234px;
+            padding: 20px 20px;
+        }
+
+        #stretch {
+            -webkit-border-image: url(border.png) 80 80 80 80 stretch;
+            -moz-border-image: url(border.png) 80 80 80 80 stretch;
+            -o-border-image: url(border.png) 80 80 80 80 stretch;
+            border-image: url(border.png) 80 80 80 80 stretch;
+        }
+
+        #repeat {
+            -webkit-border-image: url(border.png) 34% 34% repeat;
+            -moz-border-image: url(border.png) 34% 34% repeat;
+            -o-border-image: url(border.png) 34% 34% repeat;
+            border-image: url(border.png) 34% 34% repeat;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Applying Text Shadow -->
+    <h1>Text Shadow</h1>
+
+
+    <!-- Applying Rounded Corners -->
+    <div>The border-radius property adds rounded corners to an element.</div>
+    <div id="round2">Increasing the border-radius rounds the corners of the element more.</div>
+
+
+    <!-- Applying Box Shadows -->
+    <div>
+        <h2>Box Shadow Bottom and Right</h2>
+    </div>
+    <div id="box2">
+        <h2>Box Shadow Top and Left</h2>
+    </div>
+
+
+    <!-- Applying Linear Gradients -->
+    <div>
+        <h2>Vertical Linear Gradient</h2>
+    </div>
+    <div id="horizontal">
+        <h2>Horizontal Linear Gradient</h2>
+    </div>
+    <div id="diagonal">
+        <h2>Diagonal Linear Gradient</h2>
+    </div>
+
+
+    <!-- Applying Radial Gradients -->
+    <div>
+        <h2>Radial Gradient</h2>
+    </div>
+
+
+    <!-- Applying Text Stroke -->
+    <h1>Text Stroke</h1>
+
+
+    <!-- Applying Reflection -->
+    <img class="below" src="images/jhtp.png" width="138" height="180" alt="Java How to Program book cover">
+    <img class="right" src="images/jhtp.png" width="138" height="180" alt="Java How to Program book cover">
+
+
+    <!-- Applying Image Border -->
+    <h2>Image Borders</h2>
+    <img src="images/UTAR Logo.jpg" alt="image used to demonstrate borders">
+    <p><div id="stretch">Stretching the image border</div></p>
+    <p><div id="repeat">Repeating the image border</div></p>
+</body>
+
+</html>

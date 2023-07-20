@@ -1,4 +1,4 @@
-<!-- CSS NOTE 2: CSS Positioning Element & Element Dimensions + Box Model + Text Flow -->
+<!-- CSS NOTE 2: CSS Positioning Element & Element Dimensions + Box Model -->
 
 <!--CSS positioning: 
     - Absolute Positioning
@@ -244,6 +244,20 @@
         .dark {
             font-weight: bold;
         }
+
+        /* =================  MULTIPLE BACKGROUND IMAGES =================  */
+        div.background {
+            background-image: url(images/UTAR\ Logo.jpg), url(images/ocean.png);
+            background-position: bottom right, 100% center;
+            background-origin: border-box, content-box;
+            background-repeat: no-repeat, repeat;
+        }
+
+        div.content {
+            padding: 10px 15px;
+            color: white;
+            font-size: 150%;
+        }
     </style>
 
 
@@ -311,6 +325,18 @@
         Notice how the background image is fixed in place while the rest of the page scrolls/ resize the browser window.
         Background color fills in where there is no image.
     </p>
+
+    <!-- Applying Multiple Background Images -->
+    <div class="background">
+        <div class="content">
+            <p><sup>&reg;</sup>, C, Java&trade;,
+                C#<sup>&reg;</sup>, Visual Basic<sup>&reg;</sup>,
+                Objective-C<sup>&reg;</sup>, XML<sup>&reg;</sup>,
+                Python<sup>&reg;</sup>, JavaScript, object technology,
+                Internet and web programming, and Android and iPhone app
+                development.</p>
+        </div>
+    </div>
 </body>
 
 </html>
