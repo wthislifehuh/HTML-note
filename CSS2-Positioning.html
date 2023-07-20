@@ -1,0 +1,51 @@
+<!-- CSS NOTE 2: CSS Positioning Element -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>CSS Positioning Element</title>
+
+        <!-- ================= Absolute Positioning of Elements =================
+            provides greater control over where on a page elements reside
+            removes it from the normal flow of elements on the page and positions it according to distance from the top, left, right or bottom margin of its parent element
+        
+            z-index: layer overlapping elements
+                (higher z-index values are displayed in front of elements with lower z-index values)
+            
+        -->
+        <style type="text/css">
+            .background_image {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                z-index: 1;
+            }
+            .foreground_image {
+                position: absolute;
+                top: 25px;
+                left: 100px;
+                z-index: 2;
+            }
+            .text {
+                position: absolute;
+                top: 25px;
+                left: 100px;
+                z-index: 3;
+                font-size: 20pt;
+                font-family: tahoma, Geneva, sans-serif;
+            }
+        </style>
+
+
+
+    </head>
+    <body>
+        <!-- Applying Absolute Position -->
+        <p>
+            <img src="background_image.png" class="background_image" alt="Background Image">
+            <img src="foreground_image.png" class="foreground_image" alt="Foreground Image">
+        </p>
+        <p class="text">Positioned Text</p>
+    </body>
+</html>
