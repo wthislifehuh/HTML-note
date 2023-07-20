@@ -1,4 +1,68 @@
-<!-- CSS NOTE 2: CSS Positioning Element -->
+<!-- CSS NOTE 2: CSS Positioning Element & Element Dimensions + Box Model + Text Flow -->
+
+<!--CSS positioning: 
+    - Absolute Positioning
+    - Relative Positioning
+
+
+    Element Dimensions:
+    - Width and height
+    - Text-align: center, left, right
+    - Overflow: adds scroll bars if the text overflows the boundaries set for it
+
+
+    Box Model: (Margin > Border > Padding > Content)
+    - Margin: space between the element and other elements
+            (margin-top, margin-right, margin-left and margin-bottom)
+            auto - the browser calculates the margin
+            length - specifies a margin in px, pt, cm, etc.
+            % - specifies a margin in % of the width of the containing element
+            inherit - specifies that the margin should be inherited from the parent element
+                EXP:    margin: 25px 50px 75px 100px;top margin is 25px
+                        right margin is 50px
+                        bottom margin is 75px
+                        left margin is 100px
+
+    - Border: line around the element
+            border-width: thin, medium, thick, length   
+            border-style: none, hidden, dotted, dashed, solid, double, groove, ridge, inset, outset
+            border-color: color name, hex value, rgb value
+    - Padding: space between the element and its content
+            (padding-top, padding-right, padding-left and padding-bottom)
+    - Content: the content of the element
+    - Floating Element: 
+            left - The element floats to the left of its container
+            right - The element floats to the right of its container
+            none - The element does not float (will be displayed just where it occurs in the text). This is default
+            inherit - The element inherits the float value of its parent
+
+
+    Text Flow:
+    - Text-indent: indents the first line of text in the element by the specified amount
+    - Text-align: left, right, center, justify
+    - Text-decoration: none, underline, overline, line-through, blink
+    - Text-transform: capitalize, uppercase, lowercase, none
+    - Vertical-align: baseline, sub, super, top, text-top, middle, bottom, text-bottom
+    - White-space: normal, pre, nowrap, pre-wrap, pre-line
+    - Word-spacing: normal, length
+    - Letter-spacing: normal, length
+    - Line-height: normal, number, length, %
+    - Direction: ltr, rtl
+    - Color: color name, hex value, rgb value
+    - Font-family: font_name | generic_name (specify type of font instead of specific font in case cannot support)
+    - Font-size: xx-small | x-small | small | medium | large | x-large | xx-large | smaller | larger | length | %
+    - Font-style: normal | italic | oblique
+    - Font-variant: normal | small-caps
+    - Font-weight: normal | bold | bolder | lighter | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900
+    - Font: font-style font-variant font-weight font-size/line-height font-family
+    - Text-shadow: h-shadow v-shadow blur color
+    - Text-overflow: clip | ellipsis
+
+    Background:
+    
+-->
+
+
 
 <!DOCTYPE html>
 <html>
@@ -37,6 +101,133 @@
             }
         </style>
 
+        <!-- ================= Relative Positioning of Elements =================
+            elements are positioned relative to other elements            
+        -->
+        <style type="text/css">
+            p   {
+                font-size: 1.3em;
+                font-family: verdana, arial, sans-serif;
+                font-style: italic;             /*set text to none, italic or oblique*/
+                background-color: lightskyblue;
+                margin-bottom: .5em;
+                text-align: justify;
+                text-indent: lem;               /*Indents the first line of text in the element by the specified amount*/
+            }
+            span {
+                color: red;
+                font-size: 6em;
+                height: 1em;
+            }
+            .super  {
+                position: relative;
+                top: -1em;
+            }
+            .sub    {
+                position: relative;
+                bottom: -1em;
+            }
+            .shiftleft  {
+                position: relative;
+                left: -1em;
+            }
+            .shiftright {
+                position: relative;
+                right: -1em;
+            }
+
+            /* ================= Box Model ================= */
+            /* BORDER */
+            div {
+                text-align: center;
+                width: 50%;
+                position: relative;
+                left: 25%;
+                border-width: 6px;
+            }
+            div.box {
+                width: 200px;
+                height: 200px;
+                border: 1px solid black;
+                margin: 10px;
+                padding: 10px;
+            }
+            .thick  {
+                border-width: thick;
+            }
+            .thin   {
+                border-width: thin;
+            }
+            .medium {
+                border-width: medium;
+            }
+            .solid  {
+                border-style: solid;
+            }
+            .dotted {
+                border-style: dotted;
+            }
+            .double {
+                border-style: double;
+            }
+            .dashed {
+                border-style: dashed;
+            }
+            .groove {
+                border-style: groove;
+            }
+            .ridge  {
+                border-style: ridge;
+            }
+            .inset  {
+                border-style: inset;
+            }
+            .outset {
+                border-style: outset;
+            }
+            .red    {
+                border-color: red;
+            }
+            .green  {
+                border-color: green;
+            }
+
+            /* Floating Element */
+            h1 {
+                margin-top: 0px;;
+            }
+            .floated  {
+                background-color: lightgrey;
+                font-size: 1.5em;
+                font-family: Arial, Helvetica, sans-serif;
+                float: right;
+                width: 50%;
+                height: 100px;
+                margin: 10px;
+                border: 1px solid black;
+                padding-left: .2em;
+            }
+            section {
+                border: 1px solid skyblue;
+            }
+
+            /* =================  BACKGROUND =================  */
+            body {
+                background-color: #000000;
+                background-image: url("images/UTAR\ Logo.jpg"); /*background-image: url("fileLocation");*/
+                background-repeat: no-repeat;       /*controls the tiling of the background image
+                                                        no-repeat:  displays one copy of the background image on screen
+                                                        repeat:     (default) tiles the image vertically and horizontally
+                                                        repeat-x:   tiles the image only horizontally
+                                                        repeat-y:   tile the image only vertically*/
+                background-position: center;        /*top, bottom, center, left, right, bottomleft... lengths*/
+                background-attachment: fixed;       /*fixed: Fixes the image in the position specified by background-position*/
+            }
+            .dark {
+                font-weight:bold;
+            }
+
+        </style>
 
 
     </head>
@@ -47,5 +238,77 @@
             <img src="foreground_image.png" class="foreground_image" alt="Foreground Image">
         </p>
         <p class="text">Positioned Text</p>
+
+
+        <!-- Applying Relative Positioning -->
+        <p>
+            The text at the end of this sentence <span class="super"> is in superscript </span>.
+        </p>
+        <p>
+            The text at the end of this sentence <span class="sub"> is in subscript </span>.
+        </p>
+        <p>
+            The text at the end of this sentence <span class="shiftleft"> is shifted left </span>.
+        </p>
+        <p>
+            The text at the end of this sentence <span class="shiftright"> is shifted right </span>.
+        </p>
+
+        <!-- Applying element dimensions -->
+        <!-- Width and height -->
+        <p style="width: 20%">
+            Here is some text goes in a box which is set to stretch across 20% of width of the page.
+        </p> 
+
+        <!-- Text-align: center, left, right -->
+        <p style="width: 80%; text-align: center;">
+            Here is some CENTERED text goes in a box which is set to stretch across 80% of width of the page.
+        </p>
+
+        <!-- Overflow: adds scroll bars if the text overflows the boundaries set for it -->
+        <p style="width: 20%; margin-left: 10%; height: 150px; overflow: scroll">
+            This box is only 20% wide, but it is fixed 150px high and has a scroll bar (since overflow).
+        </p>
+
+
+        <!-- Applying Box Model -->
+
+        <!-- BORDER -->
+        <div class="solid">Solid border</div><hr>
+        <div class="thick dashed">Thick Dashed border </div><hr>
+        <div class="box thick solid red">Thick solid red border</div><hr>
+        <div class="box dotted double red">Medium dotted red border</div><hr>
+
+        <!-- Floating Element -->
+        <h1 class="floated">Floating Element</h1>
+
+
+        <!-- Applying Background -->
+        <p>
+            Use background styles to place the <span class="dark"> UTAR </span> logo in the center of the page.
+            Notice how the background image is fixed in place while the rest of the page scrolls/ resize the browser window.
+            Background color fills in where there is no image.
+        </p>
     </body>
 </html>
+
+<!--
+    ================= Inline-level Elements =================
+    Do not change the flow of the document
+    - img
+    - a
+    - em
+    - strong
+    - span: Grouping element
+            Does not apply any formatting to its contents
+            Creates a container for CSS rules or id attributes to be applied to a section
+
+    ================= Block-level Elements =================
+    Displayed on their own line (Have virtual boxes around them)
+    - p
+    - h1, h2, h3, h4, h5, h6
+    - ul, ol, li
+    - div: Grouping element
+            Does not apply any formatting to its contents
+            Creates a container for CSS rules or id attributes to be applied to a section
+-->
