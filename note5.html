@@ -1,1 +1,187 @@
 <!--NOTE 5: CSS-->
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title> CSS </title>
+
+    <!-- ================= Embedded/Internal CSS =================
+        Use selectors to apply style elements throughout the entire document
+        style element type attribute specifies the MIME type
+        Style sheets use text/css
+        styles applied to an element (the parent or ancestor element) also apply to the element’s nested elements (child or descendant elements). 
+        To override the inherited style, you can apply a new style to the nested element.
+        Define take precedence (author -> user -> user agemt -> browser default)
+
+
+        style classes: preceded by period(.) , defind style (#elementId)
+        font-weight: normal | bold | bolder | lighter | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900
+        font-family: font_name | generic_name (specify type of font instead of specific font in case cannot support)
+        font-size: xx-small | x-small | small | medium | large | x-large | xx-large | smaller | larger | length | %  
+        text-decoration: none | underline | overline | line-through | blink
+
+
+            <style type=“text/css”>
+                selector  {propert_1:value_1;property_2:value_2;…property_n:value_n}
+            </style>    
+        -->
+    <style type="text/css">
+        em {
+            color: black;
+            font-weight: bold;
+        }
+
+        h1 {
+            font-size: 20pt;
+            font-family: tahoma, Helvetica, sans-serif;
+        }
+
+        p {
+            font-size: 12pt;
+            font-family: Arial, sans-serif;
+        }
+
+        .special {
+            color: deepskyblue;
+            font-size: 20pt;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        a.nodec {
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        li em {
+            color: black;
+            font-weight: bold;
+        }
+
+        h1,
+        em {
+            text-decoration: underline;
+        }
+
+        ul {
+            list-style-type: none;
+            margin-left: 20;
+            padding-right: 10;
+        }
+
+        ul ul {
+            font-size: 12pt;
+            font-family: Arial, sans-serif;
+            color: deepskyblue;
+        }
+    </style>
+
+    <!-- ================= External CSS ================= 
+        To apply similar styles to multiple elements
+
+            In HTML.html: <link rel = "stylesheet" type = "text/css"  href = "css/styles.css">
+            In CSS.css: Selector {propert_1:value_1;property_n:value_n;}
+        -->
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <!-- IN CSS.css
+        body    {font-family: Arial, sans-serif;}
+        a.nodec {text-decoration: none;}
+        a:hover {text-decoration: underline;}
+        li em   {color: black; font-weight: bold;}
+        h1, em  {text-decoration: underline;}
+        ul      {list-style-type: none; margin-left: 20; padding-right: 10;}
+        ul ul   {font-size: 12pt; font-family: Arial, sans-serif; color: deepskyblue;}
+        h1      {font-size: 20pt; font-family: tahoma, Helvetica, sans-serif;}
+        p       {font-size: 12pt; font-family: Arial, sans-serif;}
+        em      {color: black; font-weight: bold;}
+        -->
+
+
+</head>
+
+<body>
+    <p> CSS example </p>
+
+    <!-- ================= Inline CSS ================= 
+        declare an individual element’s format using the HTML5 attribute style
+        Do not truly separate presentation from content.
+
+        <selector style = “property_1:value_1;property_2:value_2;…
+        property_n:value_n”>
+
+        color: color_name | hex_value | rgb_value
+        font-size: xx-small | x-small | small | medium | large | x-large | xx-large | smaller | larger | length | %
+        -->
+    <h1 style="color:blue; font-size: 300%;"> Inline CSS </h1>
+    <p style="font-size: 20pt; color: deepskyblue">
+        This text has the <em>font-size and colour</em> style applied to it,
+        making it 20pt and deepskyblue.
+    </p>
+
+
+    <!-- Applying embedded CSS style -->
+    <h1 class="special"> Embedded CSS </h1> <!-- Apply .special style class -->
+    <p>
+        This text has the <em>font-size and colour</em> style applied to it,
+        making it 12pt.
+    </p>
+
+</body>
+
+</html>
+
+
+
+<!-- =================  Pseudo Classes ================= 
+        keyword added to a selector that specifies a special state of the selected element(s)
+        apply a style to an element not only in relation to the content of the document tree, but also in relation to external factors.
+        give access too content that's not ddeclared in the document
+        hover pseudoclass is activated when the cursor is moved over the element
+    -->
+<style type=“text/css”>
+    input:hover {
+        background: pink;
+        color: red;
+    }
+
+    input:focus {
+        background: lightblue;
+        color: blue;
+    }
+</style>
+<!-- 
+        <style type=“text/css”>
+        a:link    {color:#FF0000;}      /* unvisited link */
+        a:visited {color:#00FF00;}  /* visited link */
+        a:hover   {color:#FF00FF;}  /* mouse over link */
+        a:active  {color:#0000FF;}  /* selected link */
+    </style>
+    -->
+
+
+<!-- =================  Selector Forms ================= 
+        Simple Selector Form
+        h1         {font-size: 24pt;}
+        h2, h3   {font-size:20pt;}
+
+        Class Selectors
+        p.normal      {font-size:13pt;}
+        p.warning     {font-size:40pt;}
+
+        Generic Selectors
+        .sale   {property-value list}
+
+        id Selectors
+        #section2   {font-size:20;}
+
+        Universal Selectors
+        *   {color: red;}
+    -->

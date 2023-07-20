@@ -14,47 +14,46 @@ specifies the structure and content of documents that are displayed in web brows
 <html> <!--Start tag -->
 
 <head>
-    <!-- Metadata -->
+    <!-- ================= Metadata ================= -->
     <!-- data(info) about data (machine parsable, will not be displayed on screen)
     Used to specify page description, keywords, author of the document, last modified...
     Used by browsers (how to display content or reload page), search engines (keywords) 
     Always go inside <head>
     Always passed as name/value pairs
     Content attribute MUST be defined if the name or the http-equiv attribute is defined-->
-    <meta charset=“utf–8”> <!--Character set-->
+
+    <!--Character set-->
+    <meta charset=“utf–8”> 
+    <!--Description: 3-4 lines descp , sometimes displayed as search result-->
     <meta name="description" content="This is the description of the webpage" />
+    <!-- Keyword: List of words which are compared with search requests-->
     <meta name="keywords" content="web page, design, HTML5, tutorials, UTAR, Malaysia" />
     <meta name="author" content="UTAR" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!--For responsive web design-->
 
 
-    <!-- TITLE -->
+    <!-- ================= TITLE ================= -->
     <title> TITLE </title> <!--Nested element: appear in the browser tab -->
     <!--<meta> tags provide search engines with info used to catalog a site
         Is not visible to users-->
-
-    <!-- Keyword: List of words which are compared with search requests-->
-    <meta name="keywords" content="web page, design, HTML5, tutorials, UTAR, Malaysia" />
-    <!--Description: 3-4 lines descp , sometimes displayed as search result-->
-    <meta name="description" content="This is the description of the webpage" />
 </head>
 
 <body>
-    <!--Heading -->
+    <!-- ================= Heading ================= -->
     <h1> Level 1 Heading </h1>
     <h2> Level 2 Heading </h2>
     <h3> Level 3 Heading </h3>
-    <h4> Level 4 Heading </h4>
+    <h4> Level 4 Heading </h4>  <!-- Normal -->
     <h5> Level 5 Heading </h5>
     <h6> Level 6 Heading </h6>
     <p> Paragraph Element </p>
-    <pre> <!-- Preserving White Space  --> 
-          Preformatted text 
+    <pre> <!-- ================= Preserving White Space =================  --> 
+                            Preformatted text 
     </pre>
-    <hr> <!--Horizontal Rule - Line with extra space above and below it(avoid using)-->
     <p>
-        <!-- HTML TAGS -->
+        <!-- ================= HTML TAGS ================= -->
         <br> Line Break
+        <hr> <!--Horizontal Rule - Line with extra space above and below it(avoid using)-->
         <strong> Strong Element &copy </strong> <!--Strong emphasis + Special Character -->
         <small> Smaller text </small>
         <del> To strike through text </del>
@@ -70,7 +69,7 @@ specifies the structure and content of documents that are displayed in web brows
         <kbd> Keyboard Element </kbd> <!--Keyboard input -->
 
 
-        <!--Relative URLs -->
+        <!-- ================= Relative URLs ================= -->
         <!--Attribute="value" -->
         <!--Hypertext reference - Strong element: created using anchor element -->
         <a href=“http://www.google.com”> Link to Google </a>
@@ -84,7 +83,7 @@ specifies the structure and content of documents that are displayed in web brows
         <!--Grandparent Folder -->
         <a href="../../fileName">Link to Grandparent Folder</a>
 
-        <!--Image -->
+        <!--================= Image =================  -->
         <img src=“image.jpg” width="92" height="120" alt=“image” />
         <!--alt = alternative text, display when it cannot render an image -->
 
@@ -93,7 +92,7 @@ specifies the structure and content of documents that are displayed in web brows
             <img src="image.jpg" width="92" height="120" alt="image">
     </p>
 
-    <!-- Internal Linking-->
+    <!-- ================= Internal Linking ================= -->
     <!--Link to a specific location within the same page -->
     <a href="#top">Link to Top</a>
     <!-- An internal link's address is "#id"-->
@@ -103,7 +102,7 @@ specifies the structure and content of documents that are displayed in web brows
     <hl id="features"> The best features of the Internet </hl>
 
 
-    <!-- List -->
+    <!-- ================= List ================= -->
     <ul> Unordered List <!-- List begin with bullet symbol -->
         <li> Item 1 </li> <!--Entry is li(list item) element-->
         <li> Item 2 </li>
@@ -128,7 +127,7 @@ specifies the structure and content of documents that are displayed in web brows
         <dd> Definition 2 </dd>
     </dl>
 
-    <!--Table -->
+    <!--================= Table -================= ->
     <table border="1">
         <caption> Table Caption </caption> <!--TITLE -->
         <!--Format table header area -->
@@ -177,7 +176,8 @@ specifies the structure and content of documents that are displayed in web brows
 
 </html> <!--End tag -->
 
-<!--Void elements = do not have end tags 
+<!--================= Void elements =================
+    = do not have end tags 
 Contain only attributes and do not have markup text (text is not between start and end tags)
 Terminated by />
 meta    -  <meta charset="utf-8">
@@ -188,9 +188,22 @@ br      -  <br />.
 -->
 
 
-<!-- Special Characters Entities
+<!-- ================= Special Characters Entities =================
     Character entity reference = &code for representing special characters (cannot be rendered)
-&gt     - greater than
-&reg    - registered trademark
-&copy   - copyright
+&gt;    - greater than      (>)
+&lt;    - less than         (<)
+&apos;  - apostrophe        (')
+&quot;  - quotation mark    (")
+&amp;   - ampersand         (&)
+&reg;   - registered trademark 
+&trade; - trademark
+&copy;  - copyright
+&sect;  - section
+&hellip;- horizontal ellipsis   (...)
+&mdash; - em dash           (--)
+&ndash; - en dash           (-)
+&frac12;- fraction 1/2
+&frac14;- fraction 1/4
+&frac34;- fraction 3/4
+&heart; - heart
 -->
