@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<!-- CSS NOTE 3: Media Queries
+   
+   CSS drop-down menu -->
+
+<!-- ================= DROP DOWN MENUS ================= 
+   :hover pseudoclass: used to apply styles to an element when the mouse cursor is over it
+   display: block element, inline element, or none (is not rendered at all)
+-->
+<html>
+
+<head>
+   <meta charset="utf-8">
+   <title>
+      Drop-Down Menu
+   </title>
+   <style type="text/css">
+      body {
+         font-family: arial, sans-serif
+      }
+
+      nav {
+         font-weight: bold;
+         color: white;
+         border: 2px solid RoyalBlue;
+         text-align: center;
+         width: 10em;
+         background-color: RoyalBlue;
+      }
+
+      nav ul {
+         display: none;
+         /*not rendered*/
+         list-style: none;
+         margin: 0;
+         padding: 0;
+      }
+
+      nav:hover ul {
+         /*:hover pseudoclass*/
+         display: block;
+      }
+
+      nav ul li {
+         border-top: 2px solid RoyalBlue;
+         background-color: white;
+         width: 10em;
+      }
+
+      nav ul li:hover {
+         background-color: PowderBlue;
+      }
+
+
+
+      
+      /* ================= Media Queries ================= 
+      Format content to specific output device
+      Include a media type and expressions that check the media features of the output device. 
+      Determine finer attributes of the media on which the user is viewing the page, 
+      such as the length and width of the viewing area on the screen
+ 
+      Common Media Features: 
+      - width: the width of the part of the screen on which the document is rendered, including any scrollbars 
+         @media screen and (min-width: 480px) {}
+      - height: the height of the part of the screen on which the document is rendered, including any scrollbars
+      -  device-width: the width of the screen of the output device
+         @media screen and (max-device-width: 480px)
+      - device-height: the height of the screen of the output device
+      - orientation: if the height is greater than the width, orientation is portrait, and if the width is greater than the height, orientation is landscape
+      - aspect: ratio—the ratio of width to height 
+         @media (aspect ratio: 1/1)
+      - device: aspect-ratio—the ratio of device-width to device-height
+
+
+      @media rule: determine the type and size of device on which the page is rendered (true = apply or false = not apply)
+
+      */
+
+      p {
+         margin: 0.9em 0em;
+      }
+
+      /* styles for smartphones with screen widths 480px or smaller */
+      @media handheld and (max-width: 480px),
+      screen and (max-device-width: 480px),
+      screen and (max-width: 480px) {
+         div {
+            -webkit-column-count: 1;
+            column-count: 1;
+         }
+      }
+
+      /* styles for devices with screen widths of 481px to 1024px */
+      @media only screen and (min-width: 481px) and (max-width: 1024px) {
+         div {
+            -webkit-column-count: 2;
+            column-count: 2;
+            -webkit-column-gap: 30px;
+            column-gap: 30px;
+            -webkit-column-rule: 1px outset black;
+            column-rule: 1px outset black;
+         }
+      }
+
+      /* styles for devices with screen widths of 1025px or greater */
+      @media only screen and (min-width: 1025px) {
+         div {
+            -webkit-column-count: 3;
+            column-count: 3;
+            -webkit-column-gap: 30px;
+            column-gap: 30px;
+            -webkit-column-rule: 1px outset black;
+            column-rule: 1px outset black;
+         }
+      }
+   </style>
+</head>
+
+<body>
+   <nav>Menu
+      <ul>
+         <li><a href="#">Home</a></li>
+         <li><a href="#">News</a></li>
+         <li><a href="#">Articles</a></li>
+         <li><a href="#">Blog</a></li>
+         <li><a href="#">Contact</a></li>
+      </ul>
+   </nav>
+
+
+   <div class="multicolumns">
+      <p> Content 1 </p>
+      <p>Content 2 </p>
+      <p>Content 3</p>
+      <p>Content 4</p>
+   </div>
+</body>
+
+</html>

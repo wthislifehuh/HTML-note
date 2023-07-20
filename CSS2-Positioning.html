@@ -224,39 +224,95 @@
             border: 1px solid skyblue;
         }
 
-        /* =================  BACKGROUND =================  */
-        body {
-            background-color: #000000;
-            background-image: url("images/UTAR\ Logo.jpg");
-            /*background-image: url("fileLocation");*/
-            background-repeat: no-repeat;
-            /*controls the tiling of the background image
-                                                        no-repeat:  displays one copy of the background image on screen
-                                                        repeat:     (default) tiles the image vertically and horizontally
-                                                        repeat-x:   tiles the image only horizontally
-                                                        repeat-y:   tile the image only vertically*/
-            background-position: center;
-            /*top, bottom, center, left, right, bottomleft... lengths*/
-            background-attachment: fixed;
-            /*fixed: Fixes the image in the position specified by background-position*/
+
+        /* =================  Multicolumn Layout ================= */
+        p {
+            margin: 0.9em 0em;
         }
 
-        .dark {
+        .multicolumns {
+            /* setting the number of columns to 3 */
+            -webkit-column-count: 3;
+            -moz-column-count: 3;
+            -o-column-count: 3;
+            column-count: 3;
+            /* setting the space between columns to 30px */
+            -webkit-column-gap: 30px;
+            -moz-column-gap: 30px;
+            -o-column-gap: 30px;
+            column-gap: 30px;
+            /* adding a 1px black line between each column */
+            -webkit-column-rule: 1px outset black;
+            -moz-column-rule: 1px outset black;
+            -o-column-rule: 1px outset black;
+            column-rule: 1px outset black;
+        }
+
+
+        /* =================  Flexible Box Layout Model ================= 
+            Use nth-child selectors to select each of the four div elements in the flexbox div to style
+        */
+
+        .flexbox {
+            width: 600px;
+            height: 420px;
+            display: -webkit-box;
+            display: box;
+            -webkit-box-orient: horizontal;
+            box-orient: horizontal;
+        }
+
+        .flexbox>div {
+            -webkit-transition: 1s ease-out;
+            transition: 1s ease-out;
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+            border: 2px solid black;
+            width: 120px;
+            margin: 10px -10px 10px 0px;
+            padding: 20px 20px 20px 20px;
+            box-shadow: 10px 10px 10px dimgrey;
+        }
+
+        .flexbox>div:nth-child(even) {
+            background-color: darkgrey;
+        }
+
+        .flexbox>div:nth-child(odd) {
+            background-color: lightgrey;
+        }
+
+        .flexbox>div:hover {
+            /* nested div when mouse hovers over*/
+            width: 200px;
+            color: white;
             font-weight: bold;
         }
 
-        /* =================  MULTIPLE BACKGROUND IMAGES =================  */
-        div.background {
-            background-image: url(images/UTAR\ Logo.jpg), url(images/ocean.png);
-            background-position: bottom right, 100% center;
-            background-origin: border-box, content-box;
-            background-repeat: no-repeat, repeat;
+        .flexbox>div:nth-child(1):hover {
+            /* Selects div first child of its parent and apply background-color lightblue*/
+            background-color: royalblue;
         }
 
-        div.content {
-            padding: 10px 15px;
-            color: white;
-            font-size: 150%;
+        .flexbox>div:nth-child(2):hover {
+            /*Second child*/
+            background-color: crimson;
+        }
+
+        .flexbox>div:nth-child(3):hover {
+            background-color: crimson;
+        }
+
+        .flexbox>div:nth-child(4):hover {
+            background-color: darkgreen;
+        }
+
+        p {
+            /* Text within each div*/
+            height: 250px;
+            overflow: hidden;
+            /* Hides text that overflows, when mouse hovers over, all text is revealed*/
+            font-family: "Rosario";
         }
     </style>
 
@@ -305,7 +361,7 @@
 
     <!-- Applying Box Model -->
 
-    <!-- BORDER -->
+    <!-- Applying BORDER -->
     <div class="solid">Solid border</div>
     <hr>
     <div class="thick dashed">Thick Dashed border </div>
@@ -315,28 +371,33 @@
     <div class="box dotted double red">Medium dotted red border</div>
     <hr>
 
-    <!-- Floating Element -->
+    <!-- Applying Floating Element -->
     <h1 class="floated">Floating Element</h1>
 
+    <!-- Applying Multicolumn Layout -->
+    <div class="multicolumns">
+        <p> Content 1 </p>
+        <p>Content 2 </p>
+        <p>Content 3</p>
+        <p>Content 4</p>
+    </div>
 
-    <!-- Applying Background -->
-    <p>
-        Use background styles to place the <span class="dark"> UTAR </span> logo in the center of the page.
-        Notice how the background image is fixed in place while the rest of the page scrolls/ resize the browser window.
-        Background color fills in where there is no image.
-    </p>
-
-    <!-- Applying Multiple Background Images -->
-    <div class="background">
-        <div class="content">
-            <p><sup>&reg;</sup>, C, Java&trade;,
-                C#<sup>&reg;</sup>, Visual Basic<sup>&reg;</sup>,
-                Objective-C<sup>&reg;</sup>, XML<sup>&reg;</sup>,
-                Python<sup>&reg;</sup>, JavaScript, object technology,
-                Internet and web programming, and Android and iPhone app
-                development.</p>
+    <!-- Applying Flexible Box Layout Model -->
+    <div class="flexbox">
+        <div><img src="images/jhtp.png" alt="Image 1">
+            <p>Content 1</p>
+        </div>
+        <div><img src="images/jhtp.png" alt="IImage 2">
+            <p>Content 2</p>
+        </div>
+        <div><img src="images/jhtp.png" alt="Image 3">
+            <p>Content 3</p>
+        </div>
+        <div><img src="images/jhtp.png" alt="Image 4">
+            <p>Content 4</p>
         </div>
     </div>
+
 </body>
 
 </html>
