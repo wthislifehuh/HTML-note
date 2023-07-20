@@ -10,4 +10,5 @@ NOTE 4 : HTML Multimedia
 ##CSS
 NOTE 1 : CSS basics
 NOTE 2 : CSS Positioning Elements
-NOTE 3 : CSS Background
+NOTE 3 : CSS Media Queries
+NOTE 4 : CSS Text
