@@ -84,14 +84,22 @@
         }
     </style>
 
-    <!-- ================= External CSS ================= 
-        To apply similar styles to multiple elements
 
-            In HTML.html: <link rel = "stylesheet" type = "text/css"  href = "css/styles.css">
-            In CSS.css: Selector {propert_1:value_1;property_n:value_n;}
+    <!-- ================= External CSS ================= 
+        Separate documents that contain only CSS rules 
+        Help create a uniform look for a website (skinning)
+        - Separate pages can all use the same styles to multiple elements. 
+        - Modifying a single style-sheet file makes changes to styles across an entire website/ all the pages that use those styles.
+
+        In HTML.html: <link rel = "stylesheet" type = "text/css"  href = "css/styles.css">
+            rel: specify a relationship between two documents (declare stylesheet for the doc)
+            type: specify the MIME type of the linked document
+            href: specify the location/URL for the document containing the style sheet
+        In CSS.css: Selector {propert_1:value_1;property_n:value_n;}
         -->
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <!-- IN CSS.css
+        /* External Style Sheet */
         body    {font-family: Arial, sans-serif;}
         a.nodec {text-decoration: none;}
         a:hover {text-decoration: underline;}
@@ -109,6 +117,7 @@
 
 <body>
     <p> CSS example </p>
+
 
     <!-- ================= Inline CSS ================= 
         declare an individual element’s format using the HTML5 attribute style
@@ -134,6 +143,11 @@
         making it 12pt.
     </p>
 
+    <!-- Applying External CSS style -->
+    <p>
+        <em>Go to the</em>
+        <a class="nodec" href="http://www.google.com">Google</a>
+    </p>
 </body>
 
 </html>
@@ -158,13 +172,28 @@
     }
 </style>
 <!-- 
-        <style type=“text/css”>
+    <style type=“text/css”>
         a:link    {color:#FF0000;}      /* unvisited link */
-        a:visited {color:#00FF00;}  /* visited link */
-        a:hover   {color:#FF00FF;}  /* mouse over link */
-        a:active  {color:#0000FF;}  /* selected link */
+        a:visited {color:#00FF00;}      /* visited link */
+        a:hover   {color:#FF00FF;}      /* mouse over link */
+        a:active  {color:#0000FF;}      /* selected link */
     </style>
     -->
+
+<!-- ================= Measurements =================
+    Relative length measurements (Use to scale well on browsers with different screen resolutions):
+    px (pixels – size varies depending on screen resolution)
+    em (usually the height of a font’s uppercase M) 
+    ex (usually the height of a font’s lowercase x)
+    Percentages (of the font’s default size) 
+
+    Absolute-length measurements (units that do not vary in size):
+    in (inches)
+    cm (centimeters)
+    mm (millimeters)
+    pt (points; 1 pt = 1/72 in)
+    pc (picas; 1 pc = 12 pt)
+-->
 
 
 <!-- =================  Selector Forms ================= 
@@ -184,4 +213,4 @@
 
         Universal Selectors
         *   {color: red;}
-    -->
+-->
