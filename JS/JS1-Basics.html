@@ -33,11 +33,21 @@
 <body>
     <!-- ===================== JS script in Body ===================== -->
     <script>
+
+        // ===== VARIABLE =====
+        var message; // variable declaration: var (assign using =)
+        // does not require variables (automatically convert between values of different types)
+        // When a variable is declared in JavaScript, but is not given a value, it has an undefined value. 
+        // Attempting to use the value of such a variable is normally a logic error. 
+        // null: a special keyword that indicates a variable has no value
+
+
         // ===== INPUT BOX =====
         var message = prompt("Message", "Default value");
         // displays a dialog box that prompts the visitor for input
         // used to get a response from the visitor before entering a page
         // Message and default value are optional
+
 
         // ===== MESSAGE BOX =====
         document.write(message);
@@ -48,10 +58,12 @@
         // add a space after each statement
         document.write( "<p>" + value + ( isEven( value ) ? " is even" : " is odd" ) + "</p>" );
         //condition? value if true: value if false
+        // "+" : concatenate 2 string
+        document.write(); // display null
 
 
         // ===== CONFIRM BOX =====
-        var r = confirm("Press a button!");  // variable declaration: var
+        var r = confirm("Press a button!");          
         /* displays a dialog box with a specified message, along with an OK and a Cancel button
             returns true if OK is pressed, and false if Cancel is pressed
             used to get a response from the visitor*/
@@ -64,6 +76,7 @@
 
         // Escape Character: \", \\, \', \n, \t, \b, \r, \f, \v
         
+
         // ===== PARSE =====
         var numFloat = parseFloat(str); 
         // convert a string to a floating-point number (NaN if first character cannot be converted to a number)
@@ -80,8 +93,28 @@
         document.write(typeof message); // string
         document.write(typeof r); // boolean
 
-        // ===== EQUALITY =====
-        document.write( 1 === 1 ); // true
+        // ===== EQUALITY & RELATIONAL OPERATOR =====
+        document.write( 1 == 1 ); // true
+        document.write( 1 == "1" ); // true
+        // does the type conversion of the operands before comparison
+        document.write( 1 === "1" ); // false
+        // compares the values as well as the data types of the operands
+        document.write( 1 != 2 ); // true
+        document.write( 1 != "1" ); // false
+        document.write( 1 !== "1" ); // true
+        document.write( 1 > 2 ); // false
+        document.write( 1 < 2 ); // true
+        document.write( 1 >= 2 ); // false
+        document.write( 1 <= 2 ); // true
+        isFinite(1/0); // false
+        // returns true if the argument is a number, otherwise it is false
+        isNaN("Hello"); // true
+        // returns true if the argument is not a number, otherwise it is false
+
+
+
+        // ===== ARITHMETIC ===== 
+        // +, -, *, /, %, ++, --
 
 
         // ===== FOR LOOP =====
@@ -90,7 +123,141 @@
             document.write("Fee for year " + i + " : " + fee.toFixed(2) + "<br>");
             fee += fee * 0.04;
         }
-    
+
+        // ===== FUNCTION =====
+        function myFunction() {
+            document.getElementById("demo").innerHTML = "Paragraph changed.";
+        }
+        // Way to return control to the calling function
+        // Reaching the function-ending right brace
+        // Executing statement return
+        // Executing statement "return expression;"
+
+        // call the function
+        myFunction();
+
+        /* ===== SCOPE RULES =====
+            Scope of identifier for a variable or function = portion of program in which the identifier can be referenced
+            Global scope: global/script-level variables declared outside a function, can be accessed from any function
+                Global variables have precedence (outside a function)
+            Local scope: local variables declared within a function, can be accessed only by statements that are inside the function {}
+                Local variables have precedence (inside a function)
+            (avoid) If a local variable in a function has the same name as a global variable, the global variable is “hidden” from the body of the function.
+            If you assign a value to a variable that has not been declared, it will automatically become a GLOBAL variable
+            
+            ===== GLOBAL FUNCTIONS =====
+            JavaScript provides nine global functions as part of a Global object
+            This object contains 
+                all the global variables in the script
+                all the user-defined functions in the script 
+                all the built-in global functions listed in the following slide
+            Do not need to use the Global object directly; JavaScript uses it for you
+
+            */
+
+
+        // ===== MATH FUNCTION =====
+        Math.max(1, 2, 3); // 3
+        Math.min(1, 2, 3); // 1
+        Math.round(4.7); // 5
+        Math.round(4.4); // 4
+        Math.ceil(4.4); // 5
+        Math.floor(4.7); // 4
+        Math.random(); // returns a random number between 0 (inclusive), and 1 (exclusive)
+        Math.floor(Math.random() * 10); // returns a random integer from 0 to 9
+        Math.floor(Math.random() * 10) + 1; // returns a random integer from 1 to 10
+        Math.floor(Math.random() * 100) + 1; // returns a random integer from 1 to 100
+
+        // ===== STRING FUNCTION =====
+        var str = "Hello World!";
+        str.length; // 12
+        str.indexOf("World"); // 6
+        str.lastIndexOf("World"); // 6
+        str.search("World"); // 6
+        str.slice(0, 5); // Hello
+        str.slice(-6); // World!
+        str.slice(6); // World!
+        str.slice(6, -1); // World
+        str.substring(0, 5); // Hello
+        str.substr(0, 5); // Hello
+        str.replace("World", "Universe"); // Hello Universe!
+        str.toUpperCase(); // HELLO WORLD!
+        str.toLowerCase(); // hello world!
+        str.concat(" Have a nice day!"); // Hello World! Have a nice day!
+        str.trim(); // removes whitespace from both sides of a string
+        str.charAt(0); // H
+        str.charCodeAt(0); // 72
+        str[0]; // H
+        str.split(" "); // split a string into an array of substrings
+        str.split(""); // split a string into an array of characters
+        str.split("|"); // split a string into an array of substrings, and returns the new array
+        str.split("|", 3); // split a string into an array of substrings, and returns the new array
+
+
+        // ===== ARRAY =====
+        var cars = ["Saab", "Volvo", "BMW"];
+        var cars = new Array("Saab", "Volvo", "BMW");
+        cars[0] = "Opel";
+        cars[3] = "Ford";
+        cars.push("Audi"); // add new element to the end of an array
+        cars.pop(); // remove the last element of an array
+        cars.shift(); // remove the first element of an array
+        cars.unshift("Audi"); // add new element to the beginning of an array
+        cars.splice(2, 0, "Audi", "Ford"); // add new items to an array (starting at position 2, 0 elements will be removed)
+        cars.splice(0, 1); // remove an item from an array (starting at position 0, remove 1 item)
+        cars.splice(0, 2); // remove an item from an array (starting at position 0, remove 2 items)
+        cars.splice(0, 1, "Audi", "Ford"); // remove an item from an array (starting at position 0, remove 1 item, and add "Audi" and "Ford")
+        
+
+        // ===== ARRAY SORT =====
+        var points = [40, 100, 1, 5, 25, 10];
+        points.sort(function(a, b){return a - b}); // sort an array in ascending order
+
+        // ===== ARRAY ITERATION =====
+        var fruits = ["Banana", "Orange", "Apple", "Mango"];
+        fruits.forEach(myFunction); // calls a function once for each array element
+        function myFunction(item, index) {
+            document.getElementById("demo").innerHTML += index + ":" + item + "<br>";
+        }
+        fruits.map(myFunction); // creates a new array by performing a function on each array element
+        fruits.filter(myFunction); // creates a new array with array elements that passes a test
+        fruits.reduce(myFunction); // runs a function on each array element to produce (reduce it to) a single value
+        fruits.reduceRight(myFunction); // runs a function on each array element to produce (reduce it to) a single value (from right-to-left)
+        fruits.every(myFunction); // checks if all array values pass a test
+        fruits.some(myFunction); // checks if any of the array values pass a test
+        fruits.indexOf("Apple"); // search the array for an element and returns its position
+        fruits.lastIndexOf("Apple"); // search the array for an element, starting at the end, and returns its position
+        fruits.find(myFunction); // returns the value of the first array element that passes a test function
+        fruits.findIndex(myFunction); // returns the index of the first array element that passes a test function
+        fruits.includes("Mango"); // check if an array contains the specified element
+        fruits.toString(); // converts an array to a string of (comma separated) array values
+        fruits.join(" * "); // joins all array elements into a string
+        fruits.concat(cars); // creates a new array by merging (concatenating) existing arrays
+        fruits.slice(1); // selects a part of an array, and returns the new array
+        fruits.slice(3); // selects a part of an array, and returns the new array
+        fruits.slice(1, 3); // selects a part of an array, and returns the new array
+        fruits.slice(-2); // selects a part of an array, and returns the new array
+        fruits.slice(1, -2); // selects a part of an array, and returns the new array
+        fruits.splice(2, 0, "Lemon", "Kiwi"); // adds/removes items to/from an array, and returns the removed item(s)
+        fruits.splice(0, 1); // adds/removes items to/from an array, and returns the removed item(s)
+        fruits.splice(0, 2); // adds/removes items to/from an array, and returns the removed item(s)
+        fruits.splice(0, 1, "Lemon", "Kiwi"); // adds/removes items to/from an array, and returns the removed item(s)
+        fruits.sort(); // sorts the items of an array
+        fruits.reverse(); // reverses the order of the elements in an array
+        fruits.fill("Kiwi"); // fill() method fills the specified elements in an array with a static value
+        fruits.copyWithin(2, 0); // copies array elements within the array, to and from specified positions
+        fruits.copyWithin(2, 0, 2); // copies array elements within the array, to and from specified positions
+        fruits.entries(); // returns a key/value pair Array Iteration Object
+        fruits.keys(); // returns a Array Iteration Object, containing the keys of the original array
+        fruits.values(); // returns a Array Iteration Object, containing the values of the original array
+        fruits.find(myFunction); // returns the value of the first array element that passes a test function
+        fruits.findIndex(myFunction); // returns the index of the first array element that passes a test function
+        fruits.includes("Mango"); // check if an array contains the specified element
+        fruits.toString(); // converts an array to a string of (comma separated) array values
+        fruits.join(" * "); // joins all array elements into a string
+        fruits.concat(cars); // creates a new array by merging (concatenating) existing arrays
+
+
     </script>
 
 
