@@ -1,5 +1,5 @@
 # HTML-note
-A HTML note for UTAR students taking UCCD2323 Front End Web Development
+A HTML note for UTAR UCCD2323 Front End Web Development
 
 ##HTML
 NOTE 1 : HTML basics
