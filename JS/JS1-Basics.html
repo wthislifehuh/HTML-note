@@ -1,0 +1,102 @@
+<!-- JavaScript -->
+
+<!--Powerful client-side scripting language 
+    Used to create dynamic web pages
+    Used to add interactivity to web pages
+    Used to create web, mobile apps, games, etc.
+    Used to add animations, maps, etc.
+    Used with frameworks like React, Angular, Vue, etc.-->
+
+<!--  Way to run JavaScript: Use a browser to run JS code 
+    To check if there is an issue caused by JS code:
+    open the browser console: Ctrl + Shift + C-->
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title> JavaScript </title>
+    <!-- ===================== JS script in head ===================== -->
+    <script>
+        // ===== ALERT BOX =====
+        alert("Alert message");
+        // displays an alert box with a specified message and an OK button
+        // focus away from the current window, and forces the browser to read the message
+        // Prevent user from accessing other parts of the page until the box is closed
+    </script>
+</head>
+
+<body>
+    <!-- ===================== JS script in Body ===================== -->
+    <script>
+        // ===== INPUT BOX =====
+        var message = prompt("Message", "Default value");
+        // displays a dialog box that prompts the visitor for input
+        // used to get a response from the visitor before entering a page
+        // Message and default value are optional
+
+        // ===== MESSAGE BOX =====
+        document.write(message);
+        // used to "display" data(output - convenient for testing)
+        // Using document.write() after an HTML document is loaded, will delete all existing HTML
+        // does not add a space after each statement
+        document.writeln(message);
+        // add a space after each statement
+        document.write( "<p>" + value + ( isEven( value ) ? " is even" : " is odd" ) + "</p>" );
+        //condition? value if true: value if false
+
+
+        // ===== CONFIRM BOX =====
+        var r = confirm("Press a button!");  // variable declaration: var
+        /* displays a dialog box with a specified message, along with an OK and a Cancel button
+            returns true if OK is pressed, and false if Cancel is pressed
+            used to get a response from the visitor*/
+        if (r == true) {
+            document.write("<b style=\"color:blue\">You pressed OK!</b>");
+        } else {
+            document.write("You pressed Cancel!");
+        }
+
+
+        // Escape Character: \", \\, \', \n, \t, \b, \r, \f, \v
+        
+        // ===== PARSE =====
+        var numFloat = parseFloat(str); 
+        // convert a string to a floating-point number (NaN if first character cannot be converted to a number)
+        var numInt = parseInt(str);
+        // convert a string to an integer (returns NaN if first character cannot be converted to a number)
+        var str = toFixed(num);
+        // convert a number into a string, rounding the number to keep only two decimals
+
+
+        // ===== TYPEOF =====
+        document.write(typeof numFloat); // number
+        document.write(typeof numInt); // number
+        document.write(typeof num); // string
+        document.write(typeof message); // string
+        document.write(typeof r); // boolean
+
+        // ===== EQUALITY =====
+        document.write( 1 === 1 ); // true
+
+
+        // ===== FOR LOOP =====
+        var fee = 1000;
+        for (var i = 1; i <= 6; i++) {
+            document.write("Fee for year " + i + " : " + fee.toFixed(2) + "<br>");
+            fee += fee * 0.04;
+        }
+    
+    </script>
+
+
+
+    <!-- ===================== JS script in External File ===================== -->
+    <script src="myScript.js"></script>
+</body>
+
+</html>
