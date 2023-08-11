@@ -67,8 +67,8 @@
             
             /* ===================== Adding Events Handlers ===================== */
             document.getElementById(id).onclick = function(){code}; // Adding event handler code to an onclick event
-            document.getElementById(id).addEventListener(event, function); // Adding event handler code to many events
-            document.getElementById(id).removeEventListener(event, function); // Removing event handler code from an event
+            document.getElementById(id).addEventListener(event, function(){}); // Adding event handler code to many events
+            document.getElementById(id).removeEventListener(event, function(){}); // Removing event handler code from an event
             document.getElementById(id).onload = function(){code}; // Adding event handler code to an onload event
             document.getElementById(id).onunload = function(){code}; // Adding event handler code to an onunload event
             document.getElementById(id).onchange = function(){code}; // Adding event handler code to an onchange event
@@ -150,19 +150,164 @@
             document.getElementById(id).onkeypress = function(){code}; // Adding event handler code to an onkeypress event
             document.getElementById(id).onkeyup = function(){code}; // Adding event handler code to an onkeyup event
 
-            // DEMO
+            /* ===================== DEMO ===================== */
             // Change the content of <p> elemtn with id='demo'
             document.getElementById("demo").innerHTML = "Hello World!";
             // getElementById() method returns the element that has the ID attribute with the specified value.
             // innerHTML property get/set or replace/change the HTML content (inner HTML: including <html>, <body>) of an element.
 
 
+            // Change the value of the src attribute of an image
+            document.getElementById("image").src = "pic_mountain.jpg";
+            // getElementById() method returns the element that has the ID attribute with the specified value.
+            // src property get/set or replace/change the src attribute of an image.
+
+
+            // Change the value of the href attribute of a link
+            document.getElementById("link").href = "https://www.w3schools.com";
+            // getElementById() method returns the element that has the ID attribute with the specified value.
+            // href property get/set or replace/change the href attribute of a link.
+
+
+            /* ===================== WAY of USING WEB EVENTS ===================== */
+            // 1. Inline event handler (not recommended) ================
+            // Unmanageable and inefficient
+            // HTML: <button onclick="alert('Hello World!')">Click Me!</button>
+            function bgChange(){
+                const rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
+                document.body.style.backgroundColor = rndCol;
+            }
+        
+            
+            // 2. Event Handler Properties  ================
+            // Have less power and option, but better cross-browser compatibility
+            // Change the value of background color
+            const btn = document.querySelector("button"); // Store reference to the button element
+            function random(number){
+                return Math.floor(Math.random() * (number+1));
+            }
+            // Listening for click event firing by the button element
+            btn.onclick = function(){
+                const rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
+                document.body.style.backgroundColor = rndCol;
+            }
+            // getElementById() only works with ID attributes, while querySelector() can work with any CSS selector. 
+            // getElementById() is faster than querySelector() because it only needs to search for one element, whereas querySelector() may need to search for multiple elements before returning the first match.
+
+
+            // METHOD 1: 
+            const buttons = document.querySelectorAll("button");
+            for(let i = 0; i < buttons.length ; i++){
+                buttons[i].onclick = bgChange;
+            }
+            // METHOD 2:
+            buttons.forEach(button => {
+                button.onclick = bgChange;
+            });
+
+
+            // 3. Event Listeners   ================
+            // more powerful, more complex and less well supported
+            // Way 1:
+            const btn = document.querySelector("button"); // Store reference to the button element
+            function bgChange(){
+                const rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
+                document.body.style.backgroundColor = rndCol;
+            }
+            // Listening for click event firing by the button element
+            btn.addEventListener("click", bgChange);
+                                // event type, event handler
+
+            // Way 2:
+            btn.addEventListener("click", function(){
+                const rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
+                document.body.style.backgroundColor = rndCol;
+            });
+
+            // Way 3: Register multiple handlers for the same listener
+            myElement.addEventListener("click", functionA);
+            myElement.addEventListener("click", functionB); // overwrites the value of onclick set by the first one
+            
+
+            /* ===================== Remove Event listener ===================== */
+            // To remove a previously added listener: removeEventListener()
+            // To have the same button performing different actions in different circumstances
+            btn.removeEventListener("click", bgChange);
+
+            /* ===================== DEMO ===================== */
             window.addEventListener("load", function() {
                 alert("Hello World!");
             });
             window.addEventListener("load", start, false);
             window.onload = start;
             
+            /* ===================== Event Objects ===================== 
+            Event object is parameter specified with a name such as event, evt, or simply e in the event handler function.
+            Their values are automatically passed to event handlers to provide extra features and information.*/
+            
+            // Example 1
+            function bgChange(e){
+                const rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
+                e.target.style.backgroundColor = rndCol;
+                console.log(e);
+            }
+            btn.addEventListener("click", bgChange);
+            // e.target refers to the button itself
+            // target property of the event object is always a reference to the element that the event has just occurred upon
+
+            // Example 2
+            const divs = document.querySelectorAll("div");          // Select all <div>
+            for(let i = 0; i<divs.length; i++){                     // Loop through each one
+                //divs[i].addEventListener("click", bgChange);
+                divs[i].onclick = function(e){                      // Add onclick handler to each
+                    e.target.style.backgroundColor = bgChange();    // Apply random color when clicked
+                }
+            }
+
+
+            /* ===================== Prevent Default Behaviour ===================== */
+            // Prevent an event from doing what it does by default
+            // Default behavior of a submit button is for the data to be submitted to a specified page on the server for processing, 
+            // and the browser to be redirected to the page of some kind (or the same page, if another is not specified.)
+
+            const form = document.querySelector("form");
+            const fname = document.getElementById("fname");
+            const lname = document.getElementById("lname");
+            const para = document.querySelector("p");
+            form.addEventListener("submit", function(e){        // Listen for submit event
+                if(fname.value === "" || lname.value === ""){   // If fname or lname is empty
+                    e.preventDefault();                         // Prevent form from being sent
+                    para.textContent = "You need to fill in both names!";
+                }
+            });
+
+
+            /* ===================== Event Bubbling and Capture ===================== */
+            // Event bubbling: When an event happens on an element, it first runs the handlers on it, then on its parent, then all the way up on other ancestors, until reaches <html> element
+            // Event capturing: The event starts from the top element (outer most ancestor = <html>), move on to the next element inside <html> and goes down to the target element.
+
+            // By default: event handlers are executed/registered in the bubbling phase
+            // use addEventListener(type, listener, useCapture) to register event handlers in the bubbling phase (default) or in the capturing phase. 
+            
+
+            const btn = document.querySelector("button");
+            const videoBox = document.querySelector("div");
+            const video = document.querySelector("video");
+
+            // Click button
+            btn.onclick = function(){
+                videoBox.setAttribute("class", "showing");  // change class attribute from hidden to css .showing
+            }
+            // Click video
+            videoBox.onclick = function(){
+                videoBox.setAttribute("class", "hidden");   // <div> hidden by css .hidden
+            }
+            // Stop bubbling: no more handlers will be run
+            video.onclick = function(e){
+                e.stopPropagation(); // stop bubbling
+                video.play(); // Video inside <div> play
+            }
+
         </script>
             
     </body>
