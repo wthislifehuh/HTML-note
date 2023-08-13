@@ -196,21 +196,36 @@
 -->
 
 
-<!-- =================  Selector Forms ================= 
-        Simple Selector Form
-        h1         {font-size: 24pt;}
-        h2, h3   {font-size:20pt;}
+<!-- =================  CSS SELECTOR =================
+        Refer to: https://www.w3schools.com/cssref/css_selectors.php
+        Simple/Element Selector
+        p{} // Select all <p> elements
+        
+        Grouping Selectors
+        h1, h2, p{} // Select all <h1>, <h2> and <p> elements to have the same style
+        
+        ID Selector
+        #ID{} // Select the element with id="ID"
 
-        Class Selectors
-        p.normal      {font-size:13pt;}
-        p.warning     {font-size:40pt;}
-
-        Generic Selectors
-        .sale   {property-value list}
-
-        id Selectors
-        #section2   {font-size:20;}
-
+        Class Selector
+        p.centre{}    // Select only <p> elements with class="centre"
+        
+        Generic Selector
+        .centre{} // Select all elements with class="centre"
+        
+        Attribute Selector (for without class/id)
+        a[target]{} // Select all <a> elements with a target attribute
+        a[target='value']{} // Select <a> elements with a specified attribute and value.
+        a[attribute~='value']{} // Select <a> elements with an attribute value containing a specified word.
+        a[attribute|='value']{} // Select <a> elements with a specified attribute, whose value can be exactly the specified value, or the specified value followed by a hyphen (-).
+        a[attribute^='value']{} // Select <a> elements with an attribute value beginning with a specified value.
+        a[attribute$='value']{} // Select <a> elements with an attribute value ending with a specified value.
+        a[attribute*='value']{} // Select <a> elements with an attribute value containing a specified substring.
+        
         Universal Selectors
-        *   {color: red;}
+        *{} // Select all elements on the page
+
+        
+
+
 -->

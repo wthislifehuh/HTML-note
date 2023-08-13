@@ -1,0 +1,553 @@
+<!-- JQuery -->
+
+<!-- Lifecycle:
+    1. Page building: set up the user interface
+                        Browser formulates a request sent to a server, which processes the request
+                        Client-side web app: Browser formulates a response received from the server(HTML, CSS, JavaScript) 
+    2. Event Handling: enter a loop and wait for events to occur
+                        Start invoking event handler
+    3. Lifecycle ends: User closes or leaves the webpage
+
+    jQuery: free, popular, open-source JavaScript library designed to simplify HTML DOM tree traversal and manipulation, as well as event handling, CSS animation, and Ajax.
+    Advantages: 
+    - Lightweight
+    - Easy to learn using familiar CSS syntax and intuitive
+    - Easy to extend and compatible 
+    - Many plugins available
+    - Rich community
+    - Write less, do more
+
+    Options to add jQuery to a web page:
+    1. Download jQuery library from https://jquery.com/download/
+    2. Add a <script> tag in the <head> section of the HTML document
+    3. Add a <script> tag in the <body> section of the HTML document
+    4. Add a <script> tag in an external file
+    5. Use a CDN (Content Delivery Network) to include jQuery 
+        jQuery CDN: http://code.jquery.com
+        Google CDN: https://developers.google.com/speed/libraries
+        Microsoft CDN: http://www.asp.net/ajaxlibrary/cdn.ashx 
+    6. Use a package manager to install jQuery
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+</head>
+
+<body>
+    <script>
+        // DEMO: Compare JavaScript with jQuery
+        // JavaScript
+        var checkedValue;
+        var elements = document.getElementsByName('input');
+        for (var i = 0; i < elements.length; i++) {
+            if (elements[i].type == 'radio' && elements[i].name == 'some-radio-group' && elements[i].checked) {
+                checkedValue = elements[i].value;
+                break;
+            }
+        }
+
+        // jQuery
+        var checkedValue = $('input[name="some-radio-group"]:checked').val();
+
+
+        /* ======================= Ready Handler ======================= 
+            The ready event occurs when the DOM (document object model) has been loaded.
+            (Cannot use DOM before the page has been constructed)
+            ‘ready’ function executes after the entire web page has finished loading in the visitor’s browser
+            Syntax: $(document).ready(function){ // action ;}
+            Shorthand: $(function(){ // action ;})
+            Script: <script src="jquery.min.js"></"/script>
+        */
+        $(document).ready(function () {
+            $("div.someClass").show();
+        });
+
+        // Shorthand for $(document).ready()
+        $(function () {
+            $("div.someClass").show();
+        });
+
+
+        /* ======================= SELECTORS ======================= 
+            Indicate which DOM elements jQuery will affect
+            ** Refer to: https://api.jquery.com/category/selectors/
+        */
+        $('*') // wildcard - selects all elements
+        $('#id') //getElementById('id')
+        $('tag') //getElementsByTagName('tag')
+        $('.class') //getElementsByClassName('class')
+        $('[name="somename"]') //getElementsByName('somename')
+        $('selector1, selector2, selectorN') //querySelectorAll('selector1, selector2, selectorN')
+        $('selector')   //querySelector('selector')
+
+        // Position Filter ======================= 
+        $(':first') // Selects first match element
+        $(':last')  // Selects last match element
+        $(':even')  // Selects even elements 
+        $(':odd')   // Selects odd elements 
+        // (li a:odd - returns every dodd indexed list item)
+        $(':not(selector)') // Selects all elements that do not match the given selector
+
+        // Example
+        $('#list tr:even').css("background-color", '#dde');
+        // Select id with list tr which is even line and change the background color to #dde
+
+        // Content Filter ======================= 
+        $(':contains(text)') // Selects all elements that contain the specified text
+        $(':empty') // Selects all elements that have no children (including text nodes)
+        $(':has(selector)') // Selects all elements that contain at least one element that matches the specified selector
+        $(':parent') // Selects all elements that have at least one child node (including text nodes)
+
+        // Example
+        $('div:contains("John")').css("text-decoration", "underline");
+        // Select div that contains John and underline the text
+        $('list td.comment:empty').text("No comment");
+        // Select list td that has class comment and change the text to "No comment"
+        $('div:has(p)').addClass('has-p');
+        // Select div that has p and add class has-p
+
+        // Attribute Filter (Same as CSS attribute selector)  ======================= 
+        $('[attribute]') // Selects all elements with the specified attribute
+        $('[attribute="value"]') // Selects all elements with the specified attribute and value
+        $('[attribute!="value"]') // Selects all elements with the specified attribute and value not equal to value
+        $('[attribute^="value"]') // Selects all elements with the specified attribute and value beginning with value
+        $('[attribute$="value"]') // Selects all elements with the specified attribute and value ending with value
+        $('[attribute*="value"]') // Selects all elements with the specified attribute and value containing the substring value
+        $('[attribute|="value"]') // Selects all elements with the specified attribute and value starting with value, followed by a hyphen (-)
+        $('[attribute1][attribute2][attributeN]') // Selects all elements with the specified attributes
+
+        // Example
+        $('a[href]').addClass('link');
+        // Select a that has href and add class link
+
+        // Visibility Filter (same as CSS Visibility Filter) ======================= 
+        $(':hidden') // Selects all hidden elements
+        $(':visible') // Selects all visible elements
+
+        // Child Filter ======================= 
+        $('parent > child') // Selects all direct child elements specified by "child" of elements specified by "parent"
+        $('parent descendant') // Selects all elements that are descendants of a given ancestor
+        $('prev + next') // Selects all next elements matching "next" that are immediately preceded by a sibling "prev"
+        $('prev ~ siblings') // Selects all sibling elements that follow after the "prev" element, have the same parent, and match the filtering "siblings" selector
+
+        // Form Filter ======================= 
+        $(':button') // Selects all button elements and elements of type button
+        $(':checkbox') // Selects all elements of type checkbox (input[type=checkbox])
+        $('checked') // Selects check boxes or radio elements in the checked state// options of select elements that are in a selected state
+        $(':disabled') // Selects all elements that are disabled
+        $(':enabled') // Selects all elements that are enabled
+        $(':file') // Selects all elements of type file
+        $(':focus') // Selects the element that currently has focus
+        $(':selected') // Selects all elements that are in the selected state
+        $(':image') // Selects all elements of type image
+        $(':input') // Selects all input, textarea, select and button elements
+        $(':password') // Selects all elements of type password
+        $(':radio') // Selects all elements of type radio
+        $(':reset') // Selects all elements of type reset
+        $(':submit') // Selects all elements of type submit
+        $(':text') // Selects all input elements of type text
+
+        // Example
+        var checkedValue = $('input[name="some-radio-group"]:checked').val();
+
+
+        /* ======================= METHODS =======================
+            Syntax: $(selector).methodName()
+            - A $ sign to define/access jQuery
+            - A (selector) to "query (or find)" HTML elements
+            - A jQuery method() to be performed on the element(s)
+        */
+        // Attributes
+        css(selector, value) // Sets or returns the style attribute
+        attr(attribute, value) // Sets or returns the value of the attribute
+        val(value) // Sets or returns the value of form fields
+        text() // Sets or returns the text content of selected elements
+        html() // Sets or returns the content of selected elements (including HTML markup)
+        addClass(element, className) // Adds one or more classes to the selected elements
+
+        // DOM Manipulation
+        prepend() // Inserts new HTML into the beginning of the selected HTML elements
+        append() // Inserts new HTML content at the end of the selected HTML elements
+        appendTo('#id') // Inserts new HTML content in the selected HTML elements
+        before() // Inserts new HTML content before the selected HTML elements
+        after() // Inserts new HTML content after the selected HTML elements
+
+        // Events
+        click() // Triggers the click event of each matched element
+        dblclick() // Triggers the dblclick event of each matched element
+        mouseenter() // Triggers the mouseenter event of each matched element
+        mouseleave() // Triggers the mouseleave event of each matched element
+        mousedown() // Triggers the mousedown event of each matched element
+        mouseup() // Triggers the mouseup event of each matched element
+        hover() // Triggers the mouseenter and mouseleave events of each matched element
+        focus() // Triggers the focus event of each matched element
+        blur() // Triggers the blur event of each matched element
+        toggle() // Toggles between hiding and showing the selected elements
+        live()
+        bind() // Attaches one or more event handlers for the selected elements
+        unbind() // Unbinds a previously bound event handler from the selected elements
+
+        // Effects
+        hide() // Hides the selected elements
+        show() // Shows the selected elements
+        fadeIn() // Fades in the selected elements
+        fadeOut() // Fades out the selected elements
+        fadeToggle() // Toggles between the fadeIn() and fadeOut() methods
+        fadeTo() // Fades in/out the selected elements to a given opacity
+        slideDown() // Slides down the selected elements
+        slideUp() // Slides up the selected elements
+        slideToggle() // Toggles between the slideDown() and slideUp() methods
+
+        // Extra
+        change() // Triggers the change event of each matched element
+        select() // Triggers the select event of each matched element
+        submit() // Triggers the submit event of each matched element
+        keydown() // Triggers the keydown event of each matched element
+        keypress() // Triggers the keypress event of each matched element
+        keyup() // Triggers the keyup event of each matched element
+        resize() // Triggers the resize event of each matched element
+        scroll() // Triggers the scroll event of each matched element
+        unload() // Triggers the unload event of each matched element
+        load() // Triggers the load event of each matched element
+        error() // Triggers the error event of each matched element
+        on() // Attaches one or more event handlers for the selected elements
+        one() // Attaches one or more event handlers for the selected elements. The handler is executed at most once per element per event type
+        off() // Removes event handlers that were attached with the on() method
+        trigger() // Triggers all bound event handlers on the selected elements
+        triggerHandler() // Triggers all bound event handlers on an element for an event, without executing the browser's default actions
+        delegate() // Attaches one or more event handlers for the selected elements, and specifies a function to run when the events occur
+        undelegate() // Removes event handlers that were attached with the delegate() method
+        queue() // Shows the queue of functions to be executed on the matched elements
+        remove() // Removes the selected element (and its child elements)
+        width() // Sets or returns the width of selected elements
+        height() // Sets or returns the height of selected elements
+        position() // Returns the position of the first matched element
+        offset() // Returns the offset coordinates of the first matched element
+        animate() // Performs a custom animation of a set of CSS properties
+        stop() // Stops the currently running animation for the selected elements
+        delay() // Sets a delay for all queued functions on the selected elements
+        clearQueue() // Removes all remaining queued functions from the selected elements
+        promise() // Returns a Promise object that is resolved when all animations complete for the selected elements
+        add() // Adds elements to the set of matched elements
+        addBack() // Adds the previous set of elements on the stack to the current set
+        andSelf() // Adds the previous set of elements on the stack to the current set
+        children() // Returns all direct children of the selected element
+        closest() // Returns the first ancestor of the selected element
+        contents() // Returns all direct children of the selected element
+        end() // Ends the most recent filtering operation in the current chain and returns the set of matched elements to its previous state
+
+
+        // Examples:
+        $(this).hide() // hides the current element
+        $("p").hide() // hides all <p> elements
+        $(".test").hide() // hides all elements with class="test"
+        $("#test").hide() // hides the element with id="test"
+        $("*").hide() // hides all elements
+        $('p').addClass('red') // Select all paragraphs and add a class to them
+        /* ======================= Data-ID attraibute ======================= 
+            Syntax: $(this).data('id')
+                    $(element).data(key)
+            HTML: <input id="id" type="text" data-id="1" />
+
+            =>  data-*
+            - to store custom data private to the page or application.
+            - gives the ability to embed custom data attributes on all HTML elements
+            - The stored (custom) data can then be used in the page's JavaScript to create a more engaging user experience 
+                (without any Ajax calls or server-side database queries)
+            - The data-* attributes consist of two parts:
+                - The attribute name should not contain any uppercase letters, and must be at least one character long after the prefix "data-"
+                - The attribute value can be any string
+
+            $(this)
+            - The jQuery object constructor, jQuery wrapper around that element that enables usage of jQuery methods
+            - $(), can take a DOM element as an argument, and then jQuery creates a new jQuery object that references that DOM element
+            
+            Examples:*/
+        var dataID = $(this).data("id");
+
+
+
+        /* ======================= Event Handler ======================= 
+            Syntax: $(selector).event(function(){ // action ;})
+            Examples:*/
+        $(document).ready(function () {
+            $("p").click(function () {
+                $(this).hide();
+            });
+        });
+
+        $(document).ready(function () {
+            $("p").on("click", function () {
+                $(this).hide();
+            });
+        });
+        $(document).ready(function () {
+            $("p").on({
+                mouseenter: function () {
+                    $(this).css("background-color", "lightgray");
+                },
+                mouseleave: function () {
+                    $(this).css("background-color", "lightblue");
+                },
+                click: function () {
+                    $(this).css("background-color", "yellow");
+                }
+            });
+        });
+
+
+        /* ======================= Differences ======================= */
+        // Difference between $(document.body).on(“click”, “a” and $(“a”).click()
+        $(document.body).on('click', 'a', function () {
+            alert('I was clicked!');
+        });
+        /*  This will bind the event on the dynamic “a”  elements which are not present at the time of binding event. 
+            Event delegation: allows us to attach a single event listener, to a parent element, 
+            that will fire for all descendants matching a selector, whether those descendants exist now or are added in the future.
+        */
+        $("a").click(function () {
+            alert('I was clicked!');
+        });
+        /*  will bind events only to the static “a” elements which are present in DOM.*/
+
+        //Difference between .submit(function()) and .click(function())
+        /*Both click() and submit() both are used to click Button in Web page
+            Submit() will work if submit button should be inside <form> tag and element type="submit“. 
+                It will automatically validate the form the submit button is clicked. 
+                Don't know what button was clicked if there are more than one element type="submit" in the form.
+                == Add a click() for each button
+            Click() method will work for all  buttons in webpage with out any restrictions. 
+                But it did not validate the input.
+                must create JavaScript method validate that checks the form fields. 
+        */
+
+
+
+        /* ======================= Event Object ======================= 
+            The event object is often unnecessary and the parameter can be omitted completely. 
+            However, the event object does have a number of useful properties and methods that can be used to handle the event more dynamically.
+            Examples:*/
+        $(document).ready(function () {
+            $("p").click(function (event) {
+                alert(event.type);
+            });
+        });
+        $(document).ready(function () {
+            $("p").click(function (event) {
+                $(this).hide();
+            });
+        });
+        $(document).ready(function () {
+            $("p").click(function (event) {
+                alert(event.currentTarget === this); // true
+            });
+        });
+        $(document).ready(function () {
+            $("p").click(function (event) {
+                alert(event.currentTarget === event.target); // true
+            });
+        });
+        $(document).ready(function () {
+            $("p").click(function (event) {
+                alert(event.pageX);
+                alert(event.pageY);
+            });
+        });
+        $(document).ready(function () {
+            $("p").click(function (event) {
+                alert(event.which);
+            });
+        });
+        $(document).ready(function () {
+            $("p").click(function (event) {
+                alert(event.metaKey);
+            });
+        });
+        $(document).ready(function () {
+            $("p").click(function (event) {
+                alert(event.data.foo);
+            });
+        });
+        $(document).ready(function () {
+            $("p").click(function (event) {
+                $("span").text(event.result);
+            });
+        });
+        $(document).ready(function () {
+            $("p").click(function (event) {
+                event.stopPropagation();
+            });
+        });
+        $(document).ready(function () {
+            $("p").click(function (event) {
+                event.stopImmediatePropagation();
+            });
+        });
+        $(document).ready(function () {
+            $("p").click(function (event) {
+                event.preventDefault();
+            });
+        });
+        $(document).ready(function () {
+            $("p").click(function (event) {
+                event.delegateTarget;
+            });
+        });
+        $(document).ready(function () {
+            $("p").click(function (event) {
+                event.isDefaultPrevented();
+            });
+        });
+        $(document).ready(function () {
+            $("p").click(function (event) {
+                event.isImmediatePropagationStopped();
+            });
+        });
+        $(document).ready(function () {
+            $("p").click(function (event) {
+                event.isPropagationStopped();
+            });
+        });
+        $(document).ready(function () {
+            $("p").click(function (event) {
+                event.currentTarget;
+            });
+        });
+        $(document).ready(function () {
+            $("p").click(function (event) {
+                event.data;
+            });
+        })
+
+
+        /* ======================= jQuery Ajax =======================
+            Asynchronous Javascript And Xml
+            - Means of loading data from the server to the web browser without reloading the whole page
+            - a set of web development techniques using many web technologies on the client side to create asynchronous Web applications
+            - Make use of the JavaScript-based XMLHttpRequest object to send and receive information to and from a web server asynchronously, 
+                in the background, without interfering with the user's experience
+            
+                */
+
+
+        /* ======================= jQuery Ajax Methods =======================*/
+        // (1)
+        load()  // Load data from the server and place the returned HTML into the matched element
+        $(selector).load(URL, data, complete);
+        // URL: (required) the URL of file to load
+        // data: (optional) a set of query string(key/value) that is sent to the web server along with the request
+        // complete: (optional) callback function that is executed when the request completes
+
+        // Example(1):
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("#div1").load("demo_test.txt", function (responseTxt, statusTxt, jqXHR) {
+                    // Display success/error message
+                    if (statusTxt == "success")
+                        alert("External content loaded successfully!");
+                    if (statusTxt == "error")
+                        alert("Error: " + jqXHR.status + " " + jqXHR.statusText);
+                });
+            });
+        });
+        // Example(2): Loading Page Fragments
+        // append the url parameter with a space followed by a jQuery selector
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("#div1").load("demo_test.txt #p1");
+            });
+        });
+
+        // (2) Send and retrive data asynchronously from a web server
+        $.get(URL, data, success);  // makes Ajax requests using the HTTP GET method
+        $.post(URL, data, success); // makes Ajax requests using the HTTP POST method
+        // URL: (required) the URL of file to load
+        // data: (optional)specifies a set of query string (i.e. key/value pairs) that is sent to the web server along with the request
+        // success: (optional) callback function that is executed if the request succeeds
+
+        // Example (1):
+        /*Uses the jQuery $.get() method to make an Ajax request to the https://uccd2223-todoapi.azurewebsites.net/api/DateTime WebAPI using HTTP GET method.
+            The date and time returned from the server will be displayed in the browser without refreshing the page.
+        */
+        $(document).ready(function () {
+            $("button").click(function () {
+                $.get("https://uccd2223-todoapi.azurewebsites.net/api/DateTime", function (data, status) {
+                    alert("Data: " + data + "\nStatus: " + status);
+                    // Display the returned data in browser
+                    $('#result').html(data);
+                });
+            });
+        });
+
+        // Example (2):
+        /*The jQuery code makes an Ajax request to "https://uccd2223-week9-demo.azurewebsites.net/example2/jQueryGetMultiplicationTableDemo.html" 
+            as well as sends some additional data to the server along with the request
+        */
+        $(document).ready(function () {
+            $("button").click(function () {
+                $.get("https://uccd2223-todoapi.azurewebsites.net/api/MultiplicationTable", { "id": 4 }, function (data) {
+                    // Display the returned data in browser (other content such as button still available)
+                    $('#result').html(data);
+                });
+            });
+        });
+
+
+        // (3)
+        $.ajax({
+            type: "POST",   // type of request
+            url: url,       // url to request
+            data: data,     // data to send to server
+            success: success,// success callback function
+            dataType: dataType // data type expected from server
+        })
+
+
+        // Example: Performing POST request with Ajax using jQuery
+        $(document).ready(function () {
+            $("form").submit(function (event) {
+                // Stop form from submitting normally
+                event.preventDefault();
+
+                // Get some values from elements on the page
+                // var $form = $(this),
+                //     term = $form.find("input[name='term']").val(),
+                //     url = $form.attr("action");
+                var userComment = {};
+                userComment.name = $("#name").val();
+                userComment.Comment = $("#comment").val();
+
+                // Send the data using post
+                $.ajax({
+                    type: "POST", // type of request
+                    url: "https://uccd2223-todoapi.azurewebsites.net/api/UserComments",
+                    data: JSON.stringify(userComment),  // data to be sent to the server
+                    // stringify: convert data into string to exchange data to/from a web server
+                    success: function (data, textStatus, jqXHR) {   // success callback function
+                        var parser = new DOMParser; // create a DOMParser object
+                        var dom = parser.parseFromString(data, "text/html"); // parse the data into HTML format
+                        var decodedString = dom.body.textContent; // get the decoded string
+                        $('#result').html(decodedString); // display the decoded string in browser
+                    },
+                    dataType: "text" // data type expected from server
+                });
+            });
+        });
+
+        // ** TESTING with Postman
+        // Refer to https://www.softwaretestinghelp.com/api-testing-using-postman/#:~:text=Go%20to%20POSTMAN%20client%20and,will%20get%20the%20below%20response.
+
+    </script>
+
+
+    <!-- Adding jQuery -->
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+</body>
+
+</html>
