@@ -11,7 +11,7 @@
     </form>
 
     <!-- =================  FORM 2 =================-->
-    <hl>New HTML5 Input Types Demo</hl>
+    <hl>New HTML5 Input Types Demo - Form</hl>
     <!--method: specifies HTTP method to send form data to the server (URL variables = get, HTTP post transaction = post)
         action: specifies where to send the form data when a form is submitted
         GET - appends form data to the URL in name/value pairs (used to request data from a specified resource)
@@ -147,7 +147,8 @@
 
         <!-- ================= Enter Numerical Value =================-->
         <p>
-            <label for="number">Number:</label>
+            <label for="number">Number:</label> 
+            <!-- for='id' provides a clear relationship between labels and their corresponding form controls-->
             <input type="number" min="0" max="7" step="1" value="4" />
             <!-- step: specifies the interval between legal numbers
             if step="3" , legal numbers could be -3, 0, 3, 6, etc
@@ -202,7 +203,10 @@
 
 
         <!--================= Text List/ Data list Elements =================
-            Provide input option-->
+            Provide input option
+            <datalist> tag the user can enter its own input and add that as an option with the help of the <input> element 
+            whereas the <select> tag doesn't provide this feature.
+        -->
         <p>
             <label for="txtlist"> Birth Month (Datalist):
                 <input type="text" id="txtlist" placeholder="Select a month" list="months" />
@@ -237,13 +241,13 @@
                 value: indicate the value used if the option is selected
                 selected: indicate the default value of the option
         -->
-        <p>
+        <div>
             <label>Rate our site:
                 <!-- the <select> tag presents a drop-down -->
                 <!-- list with choices indicated by the -->
                 <!-- <option> tags -->
                 <select name="rating">
-                    <option selected>Amazing</option>
+                    <option selected>Amazing</option> <!-- selected = default-->
                     <option>10</option>
                     <option>9</option>
                     <option>8</option>
@@ -257,7 +261,7 @@
                     <option>Awful</option>
                 </select>
             </label>
-        </p>
+        </div>
 
 
         <!-- ================= Radio Buttons =================
@@ -281,6 +285,12 @@
 
         <!-- ================= Check Box =================
             - Used when more then one option is required to be selected
+            - Can select more than one option
+            type: indicate the type of input control and for checkbox input control
+            name: give name to the control which is sent to the server to be recognized and get the value
+                (group of radio buttons with the same name, each group has its own name)
+            value: indicate the value used if the radio box is selected (unique value for each radio button in the same group)
+                sent to server if the checkbox is checked
         -->
         <p> <strong>Things you liked:</strong><br />
             <label>Site design
