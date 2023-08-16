@@ -23,17 +23,18 @@ specifies the structure and content of documents that are displayed in web brows
     Content attribute MUST be defined if the name or the http-equiv attribute is defined-->
 
     <!--Character set-->
-    <meta charset=“utf–8”> 
+    <meta charset=“utf–8”>
     <!--Description: 3-4 lines descp , sometimes displayed as search result-->
     <meta name="description" content="This is the description of the webpage" />
     <!-- Keyword: List of words which are compared with search requests-->
     <meta name="keywords" content="web page, design, HTML5, tutorials, UTAR, Malaysia" />
     <meta name="author" content="UTAR" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!--For responsive web design-->
+    <!--For responsive web design-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 
     <!-- ================= TITLE ================= -->
-    <title> TITLE </title> <!--Nested element: appear in the browser tab -->
+    <title> HTML1: Basics </title> <!--Nested element: appear in the browser tab -->
     <!--<meta> tags provide search engines with info used to catalog a site
         Is not visible to users-->
 </head>
@@ -43,7 +44,7 @@ specifies the structure and content of documents that are displayed in web brows
     <h1> Level 1 Heading </h1>
     <h2> Level 2 Heading </h2>
     <h3> Level 3 Heading </h3>
-    <h4> Level 4 Heading </h4>  <!-- Normal -->
+    <h4> Level 4 Heading </h4> <!-- Normal -->
     <h5> Level 5 Heading </h5>
     <h6> Level 6 Heading </h6>
     <p> Paragraph Element </p>
@@ -52,7 +53,7 @@ specifies the structure and content of documents that are displayed in web brows
     </pre>
     <p>
         <!-- ================= HTML TAGS ================= -->
-        <br> Line Break
+        <br> Line Break <br/>
         <hr> <!--Horizontal Rule - Line with extra space above and below it(avoid using)-->
         <strong> Strong Element &copy </strong> <!--Strong emphasis + Special Character -->
         <small> Smaller text </small>
@@ -68,9 +69,11 @@ specifies the structure and content of documents that are displayed in web brows
         <code> Code Element </code> <!--Code snippet -->
         <kbd> Keyboard Element </kbd> <!--Keyboard input -->
 
+        <br>
 
         <!-- ================= Relative URLs ================= -->
         <!--Attribute="value" -->
+        <a></a> <!-- Anchor element: create a hyperlink URL -->
         <!--Hypertext reference - Strong element: created using anchor element -->
         <a href=“http://www.google.com”> Link to Google </a>
         <a href="mailto:2103160@1utar.my">Link to UTAR EMAIL</a>
@@ -97,10 +100,11 @@ specifies the structure and content of documents that are displayed in web brows
     <a href="#top">Link to Top</a>
     <!-- An internal link's address is "#id"-->
     <p> <a href="#bugs">Go to <em>Favourite Bugs</em></a></p>
+    <p><a href="#bottom">Link to bottom</a></p>
 
     <!-- id attributes creates an internal hyperlink destination-->
     <hl id="features"> The best features of the Internet </hl>
-
+    <br>
 
     <!-- ================= List ================= -->
     <ul> Unordered List <!-- List begin with bullet symbol -->
@@ -171,6 +175,36 @@ specifies the structure and content of documents that are displayed in web brows
             </tr>
         </tfoot>
     </table>
+
+    <!-- Anchor point for link to bottom -->
+    <div id="bottom"></div>
+
+    <!-- ================= Part Division ================= -->
+    <!-- <section>
+        It represents a standalone section of a webpage that is thematically related and can have its own heading.
+        It's typically used to divide content into distinct sections, 
+        making it easier for search engines and screen readers to understand the structure of the page. -->
+    <section>
+        <h2>About Us</h2>
+        <p>We are a company that specializes in...</p>
+    </section>
+
+    <!-- <div>
+        It's often used to apply CSS styling or JavaScript functionality to a specific group of elements.
+        Unlike <section>, it doesn't imply any specific thematic or structural meaning. 
+        It's a versatile element for layout and organization.    
+    -->
+    <div class="container">
+        <p>This is some content inside a div.</p>
+        <p>Another paragraph in the same div.</p>
+    </div>
+
+    <!-- <p> 
+        HTML element used to define a paragraph of text.
+        It's used to structure and display textual content, such as articles, blog posts, or general text.
+        It's not meant to be a container for other elements, but rather for plain or formatted text.-->
+
+    <p>This is a paragraph of text. It contains meaningful content.</p>
 
 </body>
 
