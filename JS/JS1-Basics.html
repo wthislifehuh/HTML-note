@@ -56,14 +56,22 @@
         // does not add a space after each statement
         document.writeln(message);
         // add a space after each statement
-        document.write( "<p>" + value + ( isEven( value ) ? " is even" : " is odd" ) + "</p>" );
+        document.write("<p>" + value + (isEven(value) ? " is even" : " is odd") + "</p>");
         //condition? value if true: value if false
         // "+" : concatenate 2 string
         document.write(); // display null
 
 
+        // ===== TYPE OF OUTPUT =====
+        console.log(a);             // write to the browser console
+        document.write(a);          // write to the HTML
+        alert(a);                   // output in an alert box
+        confirm("Really?");         // yes/no dialog, returns true/false depending on user click
+        prompt("Your age?", "0");    // input dialog. Second argument is the initial value
+
+
         // ===== CONFIRM BOX =====
-        var r = confirm("Press a button!");          
+        var r = confirm("Press a button!");
         /* displays a dialog box with a specified message, along with an OK and a Cancel button
             returns true if OK is pressed, and false if Cancel is pressed
             used to get a response from the visitor*/
@@ -75,15 +83,15 @@
 
 
         // Escape Character: \", \\, \', \n, \t, \b, \r, \f, \v
-        
+
 
         // ===== PARSE =====
-        var numFloat = parseFloat(str); 
+        var numFloat = parseFloat(str);
         // convert a string to a floating-point number (NaN if first character cannot be converted to a number)
         var numInt = parseInt(str);
         // convert a string to an integer (returns NaN if first character cannot be converted to a number)
         var str = toFixed(num);
-        // convert a number into a string, rounding the number to keep only two decimals
+        // convert a number into a string, rounding the number to keep only <num> decimals
 
 
         // ===== TYPEOF =====
@@ -94,19 +102,19 @@
         document.write(typeof r); // boolean
 
         // ===== EQUALITY & RELATIONAL OPERATOR =====
-        document.write( 1 == 1 ); // true
-        document.write( 1 == "1" ); // true
+        document.write(1 == 1); // true
+        document.write(1 == "1"); // true
         // does the type conversion of the operands before comparison
-        document.write( 1 === "1" ); // false
+        document.write(1 === "1"); // false
         // compares the values as well as the data types of the operands
-        document.write( 1 != 2 ); // true
-        document.write( 1 != "1" ); // false
-        document.write( 1 !== "1" ); // true
-        document.write( 1 > 2 ); // false
-        document.write( 1 < 2 ); // true
-        document.write( 1 >= 2 ); // false
-        document.write( 1 <= 2 ); // true
-        isFinite(1/0); // false
+        document.write(1 != 2); // true
+        document.write(1 != "1"); // false
+        document.write(1 !== "1"); // true
+        document.write(1 > 2); // false
+        document.write(1 < 2); // true
+        document.write(1 >= 2); // false
+        document.write(1 <= 2); // true
+        isFinite(1 / 0); // false
         // returns true if the argument is a number, otherwise it is false
         isNaN("Hello"); // true
         // returns true if the argument is not a number, otherwise it is false
@@ -160,13 +168,16 @@
         // displays the result in the console
         // used for debugging
 
-        
+
     </script>
 
 
 
     <!-- ===================== JS script in External File ===================== -->
     <script src="myScript.js"></script>
+
+
+    
 </body>
 
 </html>

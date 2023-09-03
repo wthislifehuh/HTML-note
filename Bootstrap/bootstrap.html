@@ -1,0 +1,130 @@
+<!-- Most popular HTML, CSS, JS framework for developing respoinsive, mobile first website -->
+
+<!-- 
+    CSS Pre-Processors
+    extend CSS with variables, operators, interpolations, functions, mixins and many more other usable assets
+    - Sass (drive Bootstrap 4: Sass variables, Sass maps, custom CSS)
+    - Less
+    - Stylus
+
+    It is advisable not to use core files instead you should create a custom.scss to style your own website. 
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <!-- CSS -->
+    <style>
+        /* Some custom styles to beautify this example */
+        p{
+        padding: 50px;
+        font-size: 32px;
+        font-weight: bold;
+        text-align: center;
+        background: #dbdfe5;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- Resource -->
+    <p> Full Tutorial refer to
+        <a href="https://www.tutorialrepublic.com/twitter-bootstrap-tutorial/">TutorialRepublic</a>
+    </p>
+
+    <!-- ========================= CONTAINER ========================= -->
+    <!-- width of the container will change at different breakpoints or screen sizes -->
+    <div class="container">
+        <h1>Container</h1>
+        <p>To create a responsive, fixed-width container</p>
+    </div>
+    <!-- width of the fluid container will always be 100% -->
+    <div class="container-fluid">
+        <h1>Container-Fluid</h1>
+        <p>To create a full width container</p>
+    </div>
+    <!-- has 100% width until specified breakpoint 
+    .container-{breakpoint}
+    -->
+    <div class="container-sm">100% wide until screen size less than 576px</div>
+    <div class="container-md">100% wide until screen size less than 768px</div>
+    <div class="container-lg">100% wide until screen size less than 992px</div>
+    <div class="container-xl">100% wide until screen size less than 1200px</div>
+    <!-- Adding background and border to container -->
+    <!-- Container with dark background and white text color -->
+    <div class="container bg-dark text-white">
+        <h1>This is a heading</h1>
+        <p>This is a paragraph of text.</p>
+    </div>
+    <!-- Container with border, extra paddings and margins 
+        (by default: padding -12px on left and right , no on top and bottom) -->
+    <div class="container border py-3 my-3">
+        <h1>This is a heading</h1>
+        <p>This is a paragraph of text.</p>
+    </div>
+
+
+    <!-- ========================= GRID ========================= -->
+    <!-- Creating 2 column layouts -->
+    <div class="container">
+        <!--Row with two equal columns-->
+        <div class="row">
+            <div class="col-md-6">Column left</div>
+            <div class="col-md-6">Column right</div>
+        </div>
+        
+        <!--Row with two columns divided in 1:2 ratio-->
+        <div class="row">
+            <div class="col-md-4">Column left</div>
+            <div class="col-md-8">Column right</div>
+        </div>
+        
+        <!--Row with two columns divided in 1:3 ratio-->
+        <div class="row">
+            <div class="col-md-3">Column left</div>
+            <div class="col-md-9">Column right</div>
+        </div>
+    </div>
+
+    <!-- Creating multi-column layouts -->
+    <div class="container-lg">
+    <div class="row">
+        <div class="col-xl-4 col-md-6 col-xxl-3"><p>Box 1</p></div>
+        <div class="col-xl-4 col-md-6 col-xxl-3"><p>Box 2</p></div>
+        <div class="col-xl-4 col-md-6 col-xxl-3"><p>Box 3</p></div>
+        <div class="col-xl-4 col-md-6 col-xxl-3"><p>Box 4</p></div>
+        <div class="col-xl-4 col-md-6 col-xxl-3"><p>Box 5</p></div>
+        <div class="col-xl-4 col-md-6 col-xxl-3"><p>Box 6</p></div>
+        <div class="col-xl-4 col-md-6 col-xxl-3"><p>Box 7</p></div>
+        <div class="col-xl-4 col-md-6 col-xxl-3"><p>Box 8</p></div>
+        <div class="col-xl-4 col-md-6 col-xxl-3"><p>Box 9</p></div>
+        <div class="col-xl-4 col-md-6 col-xxl-3"><p>Box 10</p></div>
+        <div class="col-xl-4 col-md-6 col-xxl-3"><p>Box 11</p></div>
+        <div class="col-xl-4 col-md-6 col-xxl-3"><p>Box 12</p></div>
+    </div>
+    </div>
+
+    <!-- Creating Variable Width Columns -->
+
+
+
+    <!-- JQuery (include before plugin files) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <!-- Bootstrap.js Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <!-- integrity & crossorigin: to implement Subresource Integrity (SRI)
+            security feature to mitigate the risk of attacks originating from compromised CDNs-->
+</body>
+
+</html>

@@ -98,19 +98,6 @@
         In CSS.css: Selector {propert_1:value_1;property_n:value_n;}
         -->
     <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <!-- IN CSS.css
-        /* External Style Sheet */
-        body    {font-family: Arial, sans-serif;}
-        a.nodec {text-decoration: none;}
-        a:hover {text-decoration: underline;}
-        li em   {color: black; font-weight: bold;}
-        h1, em  {text-decoration: underline;}
-        ul      {list-style-type: none; margin-left: 20; padding-right: 10;}
-        ul ul   {font-size: 12pt; font-family: Arial, sans-serif; color: deepskyblue;}
-        h1      {font-size: 20pt; font-family: tahoma, Helvetica, sans-serif;}
-        p       {font-size: 12pt; font-family: Arial, sans-serif;}
-        em      {color: black; font-weight: bold;}
-        -->
 
 
 </head>
@@ -203,7 +190,8 @@
 
 <!-- =================  CSS SELECTOR =================
         Refer to: https://www.w3schools.com/cssref/css_selectors.php
-        Simple/Element Selector
+        
+        Type/Tag/Simple/Element Selector
         p{} // Select all <p> elements
         
         Grouping Selectors
@@ -214,12 +202,20 @@
 
         Class Selector
         p.centre{}    // Select only <p> elements with class="centre"
-        
-        Generic Selector
+        (Generic)
         .centre{} // Select all elements with class="centre"
 
-        Nested Selector
-        ul ul{} // Select all <ul> elements inside <ul> elements
+        Descendent Selector
+        ul ul{} // Selects all specified descendant child elements under the parent element
+                    Select all <ul> elements inside <ul> elements
+        
+        Child Selector
+        ul > li{} // Selects all specified immediate child elements under the parent element
+                    Select all <li> elements where the parent is a <ul> element
+
+        Adjacent Sibling Selector
+        h1 + p{} // Selects all specified elements that are the adjacent siblings of a specified element (code immediate below the element)
+                    Select all <p> elements that are placed immediately after <h1> elements
         
         Attribute Selector (for without class/id)
         a[target]{} // Select all <a> elements with a target attribute

@@ -1,0 +1,205 @@
+<!--  ====================== Cookies  ====================== 
+    - stored by the browser on the user’s computer to maintain client-specific information during and between browser sessions. 
+    - to record user preferences or other information that it can retrieve during the client’s subsequent visits. 
+    - may be accessed only by the web server and scripts of the website from which the cookies originated
+    
+    Advantages of using cookies:
+    - Cookies are simple to use and implement.
+    - Occupies less memory, do not require any server resources and are stored on the user's computer so no extra burden on server.
+    - Can configure cookies to expire when the browser session ends (session cookies) or they can exist for a specified length of time on the client’s computer (persistent cookies).
+
+    Problems with Cookies
+    - Extremely limited in size (4kb of data)
+    - Cannot store entire documents
+    - Included in every HTTP request, slowing down app by trasmitting the same data
+    - User has the option of disabling cookies on his computer from browser’s setting.
+    - Users can delete a cookies.
+    - Complex type of data not allowed (e.g. dataset etc). It allows only plain text (only string content)
+    
+    (Solved by localStorage and sessionStorage)
+
+    Cookies are stored in name-value pairs:
+    a key/value pair in which each key (string) has a corresponding value (string). 
+        Eg: username = John Doe
+    Any of the following cookie attribute values can optionally follow the key-value pair, each preceded by a semicolon separator: 
+        - ;expires=date-in-GMTString-format
+            The date the cookie will expire. 
+            If this is blank, the cookie will expire when the visitor quits the browser.
+        - ;domain=domain (e.g., 'example.com' or 'subdomain.example.com') − 
+            The domain name of your site.
+        - ;path=path
+            The path to the directory or web page that set the cookie. 
+            This may be blank if you want to retrieve the cookie from any directory or page.
+        - ;secure
+            If this field contains the word "secure", then the cookie may only be retrieved with a secure server. 
+            If this field is blank, no such restriction exists.
+        - ;samesite
+            Prevents the browser from sending this cookie along with cross-site requests. Possible values are lax, strict or none.
+            The lax value will send the cookie for all same-site requests and top-level navigation GET requests. This is sufficient for user tracking, but it will prevent many Cross-Site Request Forgery (CSRF) attacks. This is the default value in modern browsers.
+            The strict value will prevent the cookie from being sent by the browser to the target site in all cross-site browsing contexts, even when following a regular link.
+            The none value explicitly states no restrictions will be applied. The cookie will be sent in all requests—both cross-site and same-site.
+-->
+
+
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+
+        // Create/ Change Cookie
+        // document.cookie = new Cookie(cookievalue1, cookievalue2);
+        document.cookie = "username=John Doe";
+        // Add expiry date in UTC time
+        document.cookie = "username=John Doe; expires=Thu, 01 Jan 2030 00:00:00 UTC";
+        // Path
+        document.cookie = "username=John Doe; expires=Thu, 01 Jan 2030 00:00:00 UTC; path=/";
+
+
+        // ====================== To Store/set Cookies =====================
+        function WriteCookie() {
+            // document.formName.inputName.value
+            if (document.myform.customer.value == "") {
+                alert("Enter some value!");
+                return;
+            }
+            var now = new Date();
+            now.setMinutes(now.getMinutes() + 1);
+            // now.setTime(now.getTime() + exdays*24*60*60*1000)
+
+            // encodeURIComponent()function: encodes special characters
+            // encodes characters: , / ? : @ & = + $ # before storing it in the cookie
+            cookievalue1 = encodeURIComponent(document.myform.customer.value) + ";";
+            cookievalue2 = encodeURIComponent(document.myform.age.value) + ";";
+            // OLD: escape() function: encode special characters
+            // cookievalue1 = escape(document.myform.customer.value) + ";";
+            // cookievalue2 = escape(document.myform.age.value) + ";";
+
+            // Example:
+            // Assign a string value to the document.cookie object to store cookie:
+            // Normal
+            // document.cookie = "name=" + cookievalue1 + "SameSite=Strict;";
+            // document.cookie = "age=" + cookievalue2 + "SameSite=Strict";
+
+            // Set cookies by expiry date: To extend the life of cookie beyond the current browser session lifetime by saving the expiry date within cookie
+            document.cookie = "name=" + cookievalue1 + "SameSite=Strict" + ";expires=" + now.toUTCString();
+            document.cookie = "age=" + cookievalue2 + "SameSite=Strict" + ";expires=" + now.toUTCString();
+
+            document.write("Setting Cookies : " + "name=" + cookievalue1 + " age=" + cookievalue2);
+            // Can press Ctrl+F5 to view the cookie in the browser
+        }
+
+        // ====================== To Get/Read Cookies =====================
+        function ReadCookie() {
+            var allcookies = document.cookie;
+            document.write("All Cookies : " + allcookies);
+
+            // Get all the cookies pairs in an array/ break a string into key and values
+            cookiearray = allcookies.split(';');
+
+            // Now take key value pair out of this array
+            for (var i = 0; i < cookiearray.length; i++) {
+                name = cookiearray[i].split('=')[0];
+                // decodeURIComponent() function: to read cookies values from encoded strings
+                value = decodeURIComponent(cookiearray[i].split('=')[1]);
+                document.write("<br /> Key is : " + name + " and Value is : " + value);
+            }
+        }
+
+        // Get filtered cookies
+        function getCookie(cookieName) { // pass in cookiename as parameter
+            var name = cookieName + "=";    // variable with text to search for (cookieName + "=")
+            var cookieArray = document.cookie.split(';');   // split document cookie on semicolons into array
+            for (var i = 0; i < cookieArray.length; i++) {  
+                // loop and read each value c = cookieArray[i])
+                var c = cookieArray[i];
+                // if the first character is empty, replace it with the next character
+                while (c.charAt(0) == ' ') { 
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) { // cookie found
+                    return c.substring(name.length, c.length);  // return value of the cookie
+                }
+            }
+            // If not found, return empty string
+            return "";
+        }
+
+
+        /* ====================== localStorage and sessionStorage =====================
+        # Local Storage
+        - window object’s localStorage property to store up to several megabytes of key/value-pair string data on the user’s computer
+        - can access that data across browsing sessions and browser tabs. 
+        - Stores data with no expiration date
+
+        # sessionStorage
+        - sessionStorage object for every browsing session, including separate tabs that are accessing the same website
+        - For web app that need access to data for only a browsing session and that must keep that data separate among multiple tabs
+        - Stores data for one session (data is lost when the tab is closed)
+         */
+
+
+        // ====================== To Get and Remove Cookies from Storage =====================
+        if (typeof (Storage) !== "undefined") /* Check browser support*/ {
+            // Store cookies in storage (set a key/value pair)
+            localStorage.setItem("lastname", "Smith");  // local storage
+            sessionStorage.setItem("firstname", "John");    // session storage
+            // OR
+            // Store:    localStorage.lastname = "Smith";
+            // Retrieve: document.getElementById("result").innerHTML = localStorage.lastname;
+            // Remove:   localStorage.removeItem("lastname");
+
+            let newSpan1 = document.createElement("span");
+            let newSpan2 = document.createElement("span");
+            let $lineBreak = $("<br />");
+
+            // Retrieve cookies - getItem
+            // (Retrieve the current value associated with the key)
+            newSpan1.append("Local Storage " + localStorage.getItem("lastname"));
+            newSpan2.append("Session Storage " + sessionStorage.getItem("firstname"));
+            $("#result").append(newSpan1, $lineBreak, newSpan2);
+            // document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+
+            // Remove cookies - removeItem
+            // (delete a key/value pair from the storage collection)
+            localStorage.removeItem("lastname");
+            sessionStorage.removeItem("firstname");
+            sessonStorage.clear(); // remove all saved data from session storage
+
+        } else {
+            $("#result").html("Sorry, your browser does not support Web Storage...");
+        }
+
+        // window.location object
+        // used to get the current page address (URL) and to redirect the browser to a new page.
+        location.href // return href property
+        location.href = "URL"; // set href property
+        // Absolute URL(another website), relative URL(within website), 
+        // anchor URL(anchor within website), new protocol(specify protocol)
+
+
+    </script>
+</head>
+
+<body>
+    <!-- Store Cookies HTML -->
+    <form name="myform" action="">
+        Enter name: <input type="text" name="customer" /> <br>
+        Age: <input type="number" name="age" />
+        <input type="button" value="Set Cookie" onclick="WriteCookie();" />
+
+    </form>
+
+    <!-- Get Cookies HTML -->
+    <form name="myform" action="">
+        <p> click the following button and see the result:</p>
+        <input type="button" value="Get Cookie" onclick="ReadCookie()" />
+    </form>
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</body>
+
+</html>
