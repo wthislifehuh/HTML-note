@@ -66,11 +66,19 @@
         document.getElementById("id"); // Find an element by element id
         document.getElementsByTagName("tag")[index]; // Find elements by tag name[index=which element]
         document.getElementsByClassName("class"); // Find elements by class name
+        // QuerySelector
+        // use any CSS selector to target elements, whether it's by tag name, class, ID, attribute, or more complex selectors
+        document.querySelector(".className"); // Class
+        document.querySelector("#id"); // ID
+        var ulElement = document.querySelector("ul"); // Tag Name
+        document.querySelectorAll("[data-custom-attribute]"); // Select all elements with a specific data attribute
 
         /* ===================== Changing HTML Elements ===================== */
         element.innerHTML = new content; // Change the inner HTML of an element
         element.attribute = new value; // Change the attribute value of an HTML element
         element.style.property = new style; // Change the style of an HTML element
+        // document.querySelector("body").style.backgroundColor = "yellow";
+        element.getAttribute("attribute");
         element.setAttribute(attribute, value); // Change the attribute value of an HTML element
         // EXTRA
         element.style.cssText = style; // Change the style of an HTML element
@@ -78,6 +86,7 @@
         element.removeAttribute(attribute); // Remove an attribute from an HTML element
         element.removeAttributeNS(namespaceURI, localName); // Remove an attribute from an HTML element
         element.classList.add("class"); // Add an HTML class
+        element.textContent = value; // To change the content of an element
 
         /* ===================== Adding and Deleting Elements ===================== */
         document.createElement(element); // Create an HTML element
@@ -85,91 +94,92 @@
         document.appendChild(element); // Add an HTML element
         document.replaceChild(newone, old); // Replace an HTML element
         document.write(text); // Write into the HTML output stream
-        
+
         /* ===================== Adding Events Handlers ===================== */
-        document.getElementById(id).onclick = function(){code}; // Adding event handler code to an onclick event
-        document.getElementById(id).addEventListener(event, function(){}); // Adding event handler code to many events
-        document.getElementById(id).removeEventListener(event, function(){}); // Removing event handler code from an event
-        document.getElementById(id).onload = function(){code}; // Adding event handler code to an onload event
-        document.getElementById(id).onunload = function(){code}; // Adding event handler code to an onunload event
-        document.getElementById(id).onchange = function(){code}; // Adding event handler code to an onchange event
-        document.getElementById(id).onmouseover = function(){code}; // Adding event handler code to an onmouseover event
-        document.getElementById(id).onmouseout = function(){code}; // Adding event handler code to an onmouseout event
-        document.getElementById(id).onmousedown = function(){code}; // Adding event handler code to an onmousedown event
-        document.getElementById(id).onmouseup = function(){code}; // Adding event handler code to an onmouseup event
-        document.getElementById(id).onfocus = function(){code}; // Adding event handler code to an onfocus event
-        document.getElementById(id).onblur = function(){code}; // Adding event handler code to an onblur event
-        document.getElementById(id).onkeydown = function(){code}; // Adding event handler code to an onkeydown event
-        document.getElementById(id).onkeypress = function(){code}; // Adding event handler code to an onkeypress event
-        document.getElementById(id).onkeyup = function(){code}; // Adding event handler code to an onkeyup event
-        document.getElementById(id).onresize = function(){code}; // Adding event handler code to an onresize event
-        document.getElementById(id).onscroll = function(){code}; // Adding event handler code to an onscroll event
-        document.getElementById(id).onselect = function(){code}; // Adding event handler code to an onselect event
-        document.getElementById(id).onsubmit = function(){code}; // Adding event handler code to an onsubmit event
-        document.getElementById(id).onreset = function(){code}; // Adding event handler code to an onreset event
-        document.getElementById(id).onabort = function(){code}; // Adding event handler code to an onabort event
-        document.getElementById(id).onerror = function(){code}; // Adding event handler code to an onerror event
-        document.getElementById(id).onloadstart = function(){code}; // Adding event handler code to an onloadstart event
-        document.getElementById(id).onloadend = function(){code}; // Adding event handler code to an onloadend event
-        document.getElementById(id).onprogress = function(){code}; // Adding event handler code to an onprogress event
-        document.getElementById(id).ondurationchange = function(){code}; // Adding event handler code to an ondurationchange event
-        document.getElementById(id).onloadedmetadata = function(){code}; // Adding event handler code to an onloadedmetadata event
-        document.getElementById(id).onloadeddata = function(){code}; // Adding event handler code to an onloadeddata event
-        document.getElementById(id).oncanplay = function(){code}; // Adding event handler code to an oncanplay event
-        document.getElementById(id).oncanplaythrough = function(){code}; // Adding event handler code to an oncanplaythrough event
-        document.getElementById(id).onplaying = function(){code}; // Adding event handler code to an onplaying event
-        document.getElementById(id).onended = function(){code}; // Adding event handler code to an onended event
-        document.getElementById(id).onemptied = function(){code}; // Adding event handler code to an onemptied event
-        document.getElementById(id).onstalled = function(){code}; // Adding event handler code to an onstalled event
-        document.getElementById(id).onsuspend = function(){code}; // Adding event handler code to an onsuspend event
-        document.getElementById(id).onwaiting = function(){code}; // Adding event handler code to an onwaiting event
-        document.getElementById(id).onseeking = function(){code}; // Adding event handler code to an onseeking event
-        document.getElementById(id).onseeked = function(){code}; // Adding event handler code to an onseeked event
-        document.getElementById(id).onratechange = function(){code}; // Adding event handler code to an onratechange event
-        document.getElementById(id).onvolumechange = function(){code}; // Adding event handler code to an onvolumechange event
-        document.getElementById(id).onmessage = function(){code}; // Adding event handler code to an onmessage event
-        document.getElementById(id).onopen = function(){code}; // Adding event handler code to an onopen event
-        document.getElementById(id).onclose = function(){code}; // Adding event handler code to an onclose event
-        document.getElementById(id).ononline = function(){code}; // Adding event handler code to an ononline event
-        document.getElementById(id).onoffline = function(){code}; // Adding event handler code to an onoffline event
-        document.getElementById(id).onpopstate = function(){code}; // Adding event handler code to an onpopstate event
-        document.getElementById(id).onstorage = function(){code}; // Adding event handler code to an onstorage event
-        document.getElementById(id).onhashchange = function(){code}; // Adding event handler code to an onhashchange event
-        document.getElementById(id).onpagehide = function(){code}; // Adding event handler code to an onpagehide event
-        document.getElementById(id).onpageshow = function(){code}; // Adding event handler code to an onpageshow event
-        document.getElementById(id).onbeforeunload = function(){code}; // Adding event handler code to an onbeforeunload event
-        document.getElementById(id).oncontextmenu = function(){code}; // Adding event handler code to an oncontextmenu event
-        document.getElementById(id).oninput = function(){code}; // Adding event handler code to an oninput event
-        document.getElementById(id).oninvalid = function(){code}; // Adding event handler code to an oninvalid event
-        document.getElementById(id).ondrag = function(){code}; // Adding event handler code to an ondrag event
-        document.getElementById(id).ondragend = function(){code}; // Adding event handler code to an ondragend event
-        document.getElementById(id).ondragenter = function(){code}; // Adding event handler code to an ondragenter event
-        document.getElementById(id).ondragleave = function(){code}; // Adding event handler code to an ondragleave event
-        document.getElementById(id).ondragover = function(){code}; // Adding event handler code to an ondragover event
-        document.getElementById(id).ondragstart = function(){code}; // Adding event handler code to an ondragstart event
-        document.getElementById(id).ondrop = function(){code}; // Adding event handler code to an ondrop event
-        document.getElementById(id).onmousewheel = function(){code}; // Adding event handler code to an onmousewheel event
-        document.getElementById(id).onwheel = function(){code}; // Adding event handler code to an onwheel event
-        document.getElementById(id).oncopy = function(){code}; // Adding event handler code to an oncopy event
-        document.getElementById(id).oncut = function(){code}; // Adding event handler code to an oncut event
-        document.getElementById(id).onpaste = function(){code}; // Adding event handler code to an onpaste event
-        document.getElementById(id).onbeforecopy = function(){code}; // Adding event handler code to an onbeforecopy event
-        document.getElementById(id).onbeforecut = function(){code}; // Adding event handler code to an onbeforecut event
-        document.getElementById(id).onbeforepaste = function(){code}; // Adding event handler code to an onbeforepaste event
-        document.getElementById(id).onaftercopy = function(){code}; // Adding event handler code to an onaftercopy event
-        document.getElementById(id).onaftercut = function(){code}; // Adding event handler code to an onaftercut event
-        document.getElementById(id).onafterpaste = function(){code}; // Adding event handler code to an onafterpaste event
-        document.getElementById(id).onselect = function(){code}; // Adding event handler code to an onselect event
-        document.getElementById(id).onselectstart = function(){code}; // Adding event handler code to an onselectstart event
-        document.getElementById(id).onselectionchange = function(){code}; // Adding event handler code to an onselectionchange event
-        document.getElementById(id).onfocus = function(){code}; // Adding event handler code to an onfocus event
-        document.getElementById(id).onblur = function(){code}; // Adding event handler code to an onblur event
-        document.getElementById(id).onchange = function(){code}; // Adding event handler code to an onchange event
-        document.getElementById(id).onreset = function(){code}; // Adding event handler code to an onreset event
-        document.getElementById(id).onsubmit = function(){code}; // Adding event handler code to an onsubmit event
-        document.getElementById(id).onkeydown = function(){code}; // Adding event handler code to an onkeydown event
-        document.getElementById(id).onkeypress = function(){code}; // Adding event handler code to an onkeypress event
-        document.getElementById(id).onkeyup = function(){code}; // Adding event handler code to an onkeyup event
+        document.getElementById(id).onclick = function () { code }; // Adding event handler code to an onclick event
+        document.getElementById(id).addEventListener("click", function () { code }); //
+        document.getElementById(id).addEventListener(event, function () { }); // Adding event handler code to many events
+        document.getElementById(id).removeEventListener(event, function () { }); // Removing event handler code from an event
+        document.getElementById(id).onload = function () { code }; // Adding event handler code to an onload event
+        document.getElementById(id).onunload = function () { code }; // Adding event handler code to an onunload event
+        document.getElementById(id).onchange = function () { code }; // Adding event handler code to an onchange event
+        document.getElementById(id).onmouseover = function () { code }; // Adding event handler code to an onmouseover event
+        document.getElementById(id).onmouseout = function () { code }; // Adding event handler code to an onmouseout event
+        document.getElementById(id).onmousedown = function () { code }; // Adding event handler code to an onmousedown event
+        document.getElementById(id).onmouseup = function () { code }; // Adding event handler code to an onmouseup event
+        document.getElementById(id).onfocus = function () { code }; // Adding event handler code to an onfocus event
+        document.getElementById(id).onblur = function () { code }; // Adding event handler code to an onblur event
+        document.getElementById(id).onkeydown = function () { code }; // Adding event handler code to an onkeydown event
+        document.getElementById(id).onkeypress = function () { code }; // Adding event handler code to an onkeypress event
+        document.getElementById(id).onkeyup = function () { code }; // Adding event handler code to an onkeyup event
+        document.getElementById(id).onresize = function () { code }; // Adding event handler code to an onresize event
+        document.getElementById(id).onscroll = function () { code }; // Adding event handler code to an onscroll event
+        document.getElementById(id).onselect = function () { code }; // Adding event handler code to an onselect event
+        document.getElementById(id).onsubmit = function () { code }; // Adding event handler code to an onsubmit event
+        document.getElementById(id).onreset = function () { code }; // Adding event handler code to an onreset event
+        document.getElementById(id).onabort = function () { code }; // Adding event handler code to an onabort event
+        document.getElementById(id).onerror = function () { code }; // Adding event handler code to an onerror event
+        document.getElementById(id).onloadstart = function () { code }; // Adding event handler code to an onloadstart event
+        document.getElementById(id).onloadend = function () { code }; // Adding event handler code to an onloadend event
+        document.getElementById(id).onprogress = function () { code }; // Adding event handler code to an onprogress event
+        document.getElementById(id).ondurationchange = function () { code }; // Adding event handler code to an ondurationchange event
+        document.getElementById(id).onloadedmetadata = function () { code }; // Adding event handler code to an onloadedmetadata event
+        document.getElementById(id).onloadeddata = function () { code }; // Adding event handler code to an onloadeddata event
+        document.getElementById(id).oncanplay = function () { code }; // Adding event handler code to an oncanplay event
+        document.getElementById(id).oncanplaythrough = function () { code }; // Adding event handler code to an oncanplaythrough event
+        document.getElementById(id).onplaying = function () { code }; // Adding event handler code to an onplaying event
+        document.getElementById(id).onended = function () { code }; // Adding event handler code to an onended event
+        document.getElementById(id).onemptied = function () { code }; // Adding event handler code to an onemptied event
+        document.getElementById(id).onstalled = function () { code }; // Adding event handler code to an onstalled event
+        document.getElementById(id).onsuspend = function () { code }; // Adding event handler code to an onsuspend event
+        document.getElementById(id).onwaiting = function () { code }; // Adding event handler code to an onwaiting event
+        document.getElementById(id).onseeking = function () { code }; // Adding event handler code to an onseeking event
+        document.getElementById(id).onseeked = function () { code }; // Adding event handler code to an onseeked event
+        document.getElementById(id).onratechange = function () { code }; // Adding event handler code to an onratechange event
+        document.getElementById(id).onvolumechange = function () { code }; // Adding event handler code to an onvolumechange event
+        document.getElementById(id).onmessage = function () { code }; // Adding event handler code to an onmessage event
+        document.getElementById(id).onopen = function () { code }; // Adding event handler code to an onopen event
+        document.getElementById(id).onclose = function () { code }; // Adding event handler code to an onclose event
+        document.getElementById(id).ononline = function () { code }; // Adding event handler code to an ononline event
+        document.getElementById(id).onoffline = function () { code }; // Adding event handler code to an onoffline event
+        document.getElementById(id).onpopstate = function () { code }; // Adding event handler code to an onpopstate event
+        document.getElementById(id).onstorage = function () { code }; // Adding event handler code to an onstorage event
+        document.getElementById(id).onhashchange = function () { code }; // Adding event handler code to an onhashchange event
+        document.getElementById(id).onpagehide = function () { code }; // Adding event handler code to an onpagehide event
+        document.getElementById(id).onpageshow = function () { code }; // Adding event handler code to an onpageshow event
+        document.getElementById(id).onbeforeunload = function () { code }; // Adding event handler code to an onbeforeunload event
+        document.getElementById(id).oncontextmenu = function () { code }; // Adding event handler code to an oncontextmenu event
+        document.getElementById(id).oninput = function () { code }; // Adding event handler code to an oninput event
+        document.getElementById(id).oninvalid = function () { code }; // Adding event handler code to an oninvalid event
+        document.getElementById(id).ondrag = function () { code }; // Adding event handler code to an ondrag event
+        document.getElementById(id).ondragend = function () { code }; // Adding event handler code to an ondragend event
+        document.getElementById(id).ondragenter = function () { code }; // Adding event handler code to an ondragenter event
+        document.getElementById(id).ondragleave = function () { code }; // Adding event handler code to an ondragleave event
+        document.getElementById(id).ondragover = function () { code }; // Adding event handler code to an ondragover event
+        document.getElementById(id).ondragstart = function () { code }; // Adding event handler code to an ondragstart event
+        document.getElementById(id).ondrop = function () { code }; // Adding event handler code to an ondrop event
+        document.getElementById(id).onmousewheel = function () { code }; // Adding event handler code to an onmousewheel event
+        document.getElementById(id).onwheel = function () { code }; // Adding event handler code to an onwheel event
+        document.getElementById(id).oncopy = function () { code }; // Adding event handler code to an oncopy event
+        document.getElementById(id).oncut = function () { code }; // Adding event handler code to an oncut event
+        document.getElementById(id).onpaste = function () { code }; // Adding event handler code to an onpaste event
+        document.getElementById(id).onbeforecopy = function () { code }; // Adding event handler code to an onbeforecopy event
+        document.getElementById(id).onbeforecut = function () { code }; // Adding event handler code to an onbeforecut event
+        document.getElementById(id).onbeforepaste = function () { code }; // Adding event handler code to an onbeforepaste event
+        document.getElementById(id).onaftercopy = function () { code }; // Adding event handler code to an onaftercopy event
+        document.getElementById(id).onaftercut = function () { code }; // Adding event handler code to an onaftercut event
+        document.getElementById(id).onafterpaste = function () { code }; // Adding event handler code to an onafterpaste event
+        document.getElementById(id).onselect = function () { code }; // Adding event handler code to an onselect event
+        document.getElementById(id).onselectstart = function () { code }; // Adding event handler code to an onselectstart event
+        document.getElementById(id).onselectionchange = function () { code }; // Adding event handler code to an onselectionchange event
+        document.getElementById(id).onfocus = function () { code }; // Adding event handler code to an onfocus event
+        document.getElementById(id).onblur = function () { code }; // Adding event handler code to an onblur event
+        document.getElementById(id).onchange = function () { code }; // Adding event handler code to an onchange event
+        document.getElementById(id).onreset = function () { code }; // Adding event handler code to an onreset event
+        document.getElementById(id).onsubmit = function () { code }; // Adding event handler code to an onsubmit event
+        document.getElementById(id).onkeydown = function () { code }; // Adding event handler code to an onkeydown event
+        document.getElementById(id).onkeypress = function () { code }; // Adding event handler code to an onkeypress event
+        document.getElementById(id).onkeyup = function () { code }; // Adding event handler code to an onkeyup event
 
         /* ===================== DEMO ===================== */
         // Change the content of <p> elemtn with id='demo'
@@ -194,21 +204,21 @@
         // 1. Inline event handler (not recommended) ================
         // Unmanageable and inefficient
         // HTML: <button onclick="alert('Hello World!')">Click Me!</button>
-        function bgChange(){
+        function bgChange() {
             const rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
             document.body.style.backgroundColor = rndCol;
         }
-    
-        
+
+
         // 2. Event Handler Properties  ================
         // Have less power and option, but better cross-browser compatibility
         // Change the value of background color
         const btn = document.querySelector("button"); // Store reference to the button element
-        function random(number){
-            return Math.floor(Math.random() * (number+1));
+        function random(number) {
+            return Math.floor(Math.random() * (number + 1));
         }
         // Listening for click event firing by the button element
-        btn.onclick = function(){
+        btn.onclick = function () {
             const rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
             document.body.style.backgroundColor = rndCol;
         }
@@ -218,7 +228,7 @@
 
         // METHOD 1: 
         const buttons = document.querySelectorAll("button");
-        for(let i = 0; i < buttons.length ; i++){
+        for (let i = 0; i < buttons.length; i++) {
             buttons[i].onclick = bgChange;
         }
         // METHOD 2:
@@ -231,16 +241,16 @@
         // more powerful, more complex and less well supported
         // Way 1:
         const btn = document.querySelector("button"); // Store reference to the button element
-        function bgChange(){
+        function bgChange() {
             const rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
             document.body.style.backgroundColor = rndCol;
         }
         // Listening for click event firing by the button element
         btn.addEventListener("click", bgChange);
-                            // event type, event handler
+        // event type, event handler
 
         // Way 2:
-        btn.addEventListener("click", function(){
+        btn.addEventListener("click", function () {
             const rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
             document.body.style.backgroundColor = rndCol;
         });
@@ -248,7 +258,7 @@
         // Way 3: Register multiple handlers for the same listener
         myElement.addEventListener("click", functionA);
         myElement.addEventListener("click", functionB); // overwrites the value of onclick set by the first one
-        
+
 
         /* ===================== Remove Event listener ===================== */
         // To remove a previously added listener: removeEventListener()
@@ -256,18 +266,18 @@
         btn.removeEventListener("click", bgChange);
 
         /* ===================== DEMO ===================== */
-        window.addEventListener("load", function() {
+        window.addEventListener("load", function () {
             alert("Hello World!");
         });
         window.addEventListener("load", start, false);
         window.onload = start;
-        
+
         /* ===================== Event Objects ===================== 
         Event object is parameter specified with a name such as event, evt, or simply e in the event handler function.
         Their values are automatically passed to event handlers to provide extra features and information.*/
-        
+
         // Example 1
-        function bgChange(e){
+        function bgChange(e) {
             const rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
             e.target.style.backgroundColor = rndCol;
             console.log(e);
@@ -278,9 +288,9 @@
 
         // Example 2
         const divs = document.querySelectorAll("div");          // Select all <div>
-        for(let i = 0; i<divs.length; i++){                     // Loop through each one
+        for (let i = 0; i < divs.length; i++) {                     // Loop through each one
             //divs[i].addEventListener("click", bgChange);
-            divs[i].onclick = function(e){                      // Add onclick handler to each
+            divs[i].onclick = function (e) {                      // Add onclick handler to each
                 e.target.style.backgroundColor = bgChange();    // Apply random color when clicked
             }
         }
@@ -295,8 +305,8 @@
         const fname = document.getElementById("fname");
         const lname = document.getElementById("lname");
         const para = document.querySelector("p");
-        form.addEventListener("submit", function(e){        // Listen for submit event
-            if(fname.value === "" || lname.value === ""){   // If fname or lname is empty
+        form.addEventListener("submit", function (e) {        // Listen for submit event
+            if (fname.value === "" || lname.value === "") {   // If fname or lname is empty
                 e.preventDefault();                         // Prevent form from being sent
                 para.textContent = "You need to fill in both names!";
             }
@@ -309,28 +319,73 @@
 
         // By default: event handlers are executed/registered in the bubbling phase
         // use addEventListener(type, listener, useCapture) to register event handlers in the bubbling phase (default) or in the capturing phase. 
-        
+
 
         const btn = document.querySelector("button");
         const videoBox = document.querySelector("div");
         const video = document.querySelector("video");
 
         // Click button
-        btn.onclick = function(){
+        btn.onclick = function () {
             videoBox.setAttribute("class", "showing");  // change class attribute from hidden to css .showing
         }
         // Click video
-        videoBox.onclick = function(){
+        videoBox.onclick = function () {
             videoBox.setAttribute("class", "hidden");   // <div> hidden by css .hidden
         }
         // Stop bubbling: no more handlers will be run
-        video.onclick = function(e){
+        video.onclick = function (e) {
             e.stopPropagation(); // stop bubbling
             video.play(); // Video inside <div> play
         }
 
-    </script>
+        /* ============================= Event =============================
+        Mouse Events:
+        click: Triggered when an element is clicked.
+        mousedown: Occurs when the mouse button is pressed over an element.
+        mouseup: Fired when the mouse button is released over an element.
+        mousemove: Fired when the mouse pointer moves over an element.
+        mouseover and mouseout: These events are triggered when the mouse pointer enters or leaves an element, respectively.
+        mouseenter and mouseleave: Similar to mouseover and mouseout, but they do not bubble, so they don't trigger for nested elements.
         
+        Keyboard Events:
+        keydown: Occurs when a key on the keyboard is pressed.
+        keyup: Fired when a key is released.
+        keypress: Fired when a key that produces a character value is pressed.
+        
+        Form Events:
+        submit: Triggered when a form is submitted.
+        reset: Occurs when a form is reset.
+        focus and blur: These events are related to element focus. focus occurs when an element receives focus, while blur occurs when it loses focus.
+        input: Fired when the value of an input element changes.
+        
+        Window and Document Events:
+        load: Fired when a document or resource has finished loading.
+        resize: Occurs when the browser window is resized.
+        scroll: Triggered when the user scrolls the page.
+        DOMContentLoaded: Fired when the initial HTML document has been completely loaded and parsed.
+        
+        Custom Events:
+        You can also create and dispatch custom events using new CustomEvent() and capture them with addEventListener. This allows you to define and handle custom events in your JavaScript code.
+        
+        Touch Events (for mobile devices):
+        touchstart, touchmove, touchend: Events related to touch input on touchscreen devices.
+        
+        Media Events:
+        Events related to multimedia elements like audio and video, such as play, pause, ended, etc.
+        Drag and Drop Events:
+
+        Events like dragstart, dragend, dragenter, dragleave, and drop for elements that can be dragged and dropped.
+        Animation and Transition Events:
+
+        Events like animationstart, animationend, transitionstart, and transitionend for CSS animations and transitions.
+        
+        */
+
+
+
+    </script>
+
 </body>
 
 </html>

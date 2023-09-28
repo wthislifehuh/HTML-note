@@ -464,9 +464,15 @@
             });
         });
 
+        
         // (2) Send and retrive data asynchronously from a web server
         $.get(URL, data, success);  // makes Ajax requests using the HTTP GET method
+        // To make an Ajax request using the HTTP GET method and send a request to the server, used for retrieving data from the server.
+        // Suitable for requests that do not change the server's state & when want to pass data in URL
         $.post(URL, data, success); // makes Ajax requests using the HTTP POST method
+        // To make an Ajax request using the HTTP POST method and send a request to the server, used for sending data to the server, such as form submission.
+        // Suitable  for requests that may modify the server's state, such as form submissions, and when need to send larger or sensitive data that should not be visible in the URL.
+        
         // URL: (required) the URL of file to load
         // data: (optional)specifies a set of query string (i.e. key/value pairs) that is sent to the web server along with the request
         // success: (optional) callback function that is executed if the request succeeds
@@ -546,13 +552,16 @@
     </script>
 
 
+
+
+
     <!-- ============== Adding jQuery: load libraries from the CDN ============== -->
 
     <!-- GOOGLE CDN (Recommended) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <!--  This URL specifies a specific version of jQuery (version 3.7.0 in this case). 
         Using a specific version ensures that you have more control over the behavior of your application, 
-        as you're working with a known version that you've tested with your code. --> 
+        as you're working with a known version that you've tested with your code. -->
 
     <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>

@@ -147,7 +147,7 @@
 
         <!-- ================= Enter Numerical Value =================-->
         <p>
-            <label for="number">Number:</label> 
+            <label for="number">Number:</label>
             <!-- for='id' provides a clear relationship between labels and their corresponding form controls-->
             <input type="number" min="0" max="7" step="1" value="4" />
             <!-- step: specifies the interval between legal numbers
@@ -190,7 +190,10 @@
                 <input type="tel" placeholder="(###) ###-####" pattern="\(\d{3}\) + \d{3}-\d{4}" required />
                 (###)###-####
             </label>
-            <!-- Do not self validate - Add pattern attribute to check format-->
+            <!-- Do not self validate - Add pattern attribute to check format
+            \( and \) - These are escaped parentheses, which match literal opening and closing parentheses.
+            \d{3} - This part matches exactly three digits. \d represents any digit (0-9), and {3} specifies that it should occur exactly three times.
+            + - This is a space character followed by a plus sign. It matches one or more space characters in the input.-->
         </p>
 
         <!-- ================= URL input =================-->
@@ -209,10 +212,10 @@
         -->
         <p>
             <label for="txtlist"> Birth Month (Datalist):
-                <input type="text" id="txtlist" placeholder="Select a month" list="months" />
+                <input type="text" id="txtlist" placeholder="Select a month" list="months"/>
                 <datalist id="months">
                     <option value="January">
-                    <option value="February">
+                    <option value="February">;
                     <option value="March">
                     <option value="April">
                     <option value="May">
@@ -328,8 +331,29 @@
             <!-- formnovalidate: prevents the form from being validated when submitted -->
             <input type="reset" value="Clear" />
         </p>
-
     </form>
+
+
+    <!-- Summary -->
+    <form>
+        <p>
+            <label> Label:
+                <input type="text" name="item" placeholder="item">
+            </label>
+        </p>
+        <p>
+            <input type="submit" value="Submit" formnovalidate />
+            <input type="reset" value="Clear">
+        </p>
+    </form>
+    <!-- TYPE
+    text, email, color, date, datetime, datetime-local, time, week, month, number, range, search, tel, url, password
+    <textarea>
+    <label> + <input type="text" list="datalistid"> + <datalist id="datalistid"> + <option value="value">
+    <label> + <select name="dropdown"> + <option selected></option>
+    <label> + <input type="radio" name="same" value="name">
+    <label> <input type="checkbox" name="same" value="name">
+    -->
 </body>
 
 </html>

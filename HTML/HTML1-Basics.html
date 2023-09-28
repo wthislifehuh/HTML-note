@@ -21,6 +21,8 @@ specifies the structure and content of documents that are displayed in web brows
     Always go inside <head>
     Always passed as name/value pairs
     Content attribute MUST be defined if the name or the http-equiv attribute is defined-->
+    <!--<meta> tags provide search engines with info used to catalog a site
+        Is not visible to users-->
 
     <!--Character set-->
     <meta charset=“utf–8”>
@@ -35,8 +37,7 @@ specifies the structure and content of documents that are displayed in web brows
 
     <!-- ================= TITLE ================= -->
     <title> HTML1: Basics </title> <!--Nested element: appear in the browser tab -->
-    <!--<meta> tags provide search engines with info used to catalog a site
-        Is not visible to users-->
+
 </head>
 
 <body>
@@ -53,7 +54,7 @@ specifies the structure and content of documents that are displayed in web brows
     </pre>
     <p>
         <!-- ================= HTML TAGS ================= -->
-        <br> Line Break <br/>
+        <br> Line Break <br />
         <hr> <!--Horizontal Rule - Line with extra space above and below it(avoid using)-->
         <strong> Strong Element &copy </strong> <!--Strong emphasis + Special Character -->
         <small> Smaller text </small>
@@ -68,8 +69,35 @@ specifies the structure and content of documents that are displayed in web brows
         <mark> Mark Element </mark> <!--Highlight text -->
         <code> Code Element </code> <!--Code snippet -->
         <kbd> Keyboard Element </kbd> <!--Keyboard input -->
+        <q>Quote</q> <!--"Quote" -->
 
         <br>
+
+        <!--  ================= HYPERTEXT REFERENCE href  ================= 
+        -	Absolute URLs: These URLs provide a complete address for a resource on the internet.
+        <a href="https://www.example.com/page.html">Visit Example</a>
+
+        -	Relative URLs: Relative URLs specify the location of a resource relative to the current document.
+        <a href="subfolder/page.html">View Page</a>
+
+        -	Anchor Links: Anchor links are used to navigate within the same document or to specific sections of a webpage.
+        <a href="#section2">Jump to Section 2</a>
+        <a href="anotherpage.html #section2">Jump to Section 2 in another page</a>
+
+        -	Email Addresses: The href attribute can also be used to create email links (mailto links) that open the user's default email client with a pre-filled email address.
+        <a href="mailto:contact@example.com">Email Us</a>
+
+        -	Telephone Numbers: In some cases, the href attribute can be used to create telephone links (tel links) that allow users to initiate phone calls on mobile devices by tapping the link.
+        <a href="tel:+1234567890">Call Us</a>
+
+        -	File URLs: The href attribute can also point to local files on the user's device or network, such as PDFs, images, or downloadable files.
+        <a href="documents/myfile.pdf">Download PDF</a>
+
+        -	JavaScript: The href attribute can be used to trigger JavaScript actions when clicked.
+        <a href="javascript:void(0);" onclick="doSomething()">Click Me</a>
+
+        -->
+
 
         <!-- ================= Relative URLs ================= -->
         <!--Attribute="value" -->
@@ -93,6 +121,13 @@ specifies the structure and content of documents that are displayed in web brows
         <!--Using Image as hyperlink -->
         <a href="links.html">
             <img src="image.jpg" width="92" height="120" alt="image">
+        </a>
+        <!-- <figure> element is used to group an image and its caption together -->
+    <figure>
+        <img src="your-image.jpg" alt="Description of the image">
+        <figcaption>Caption for the picture goes here.</figcaption>
+        <!-- Define caption text -->
+    </figure>
     </p>
 
     <!-- ================= Internal Linking ================= -->
@@ -130,6 +165,36 @@ specifies the structure and content of documents that are displayed in web brows
         <dt> Term 2 </dt>
         <dd> Definition 2 </dd>
     </dl>
+
+    <!-- EXAMPLE -->
+    <ol type="I" start="5">  <!-- Start with V. -->
+        <!-- Type:
+        "1": Arabic numerals (default).
+        "A": Uppercase alphabetical letters (A, B, C, ...).
+        "a": Lowercase alphabetical letters (a, b, c, ...).
+        "I": Uppercase Roman numerals (I, II, III, ...).
+        "i": Lowercase Roman numerals (i, ii, iii, ...). -->
+        <li>Start with V
+            <ol>
+                <li>Number</li>
+            </ol>
+        </li>
+        <li>VI
+            <!--Nested Ordered List - List begin with bullet symbol -->
+            <ol>
+                <li>Number</li>
+                <li>Number</li>
+            </ol>
+        </li>
+        <li>VII
+            <!--Nested Unordered List -->
+            <ul>
+                <li>Item</li>
+                <li>Item</li>
+                <li>Item</li>
+            </ul>
+        </li>
+    </ol>
 
     <!--================= Table -================= -->
     <table border="1">

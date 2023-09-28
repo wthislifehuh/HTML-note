@@ -29,59 +29,7 @@
             </style>    
         -->
     <style type="text/css">
-        em {    /* Select Emphasized Element */
-            color: black;
-            font-weight: bold;
-        }
-
-        h1 {    /* Select Heading 1 Element */
-            font-size: 20pt;
-            font-family: tahoma, Helvetica, sans-serif;
-        }
-
-        p { /* Select Paragraph Element */
-            font-size: 12pt;
-            font-family: Arial, sans-serif;
-        }
-
-        .special {  /* Select Class name with "Special"*/
-            color: deepskyblue;
-            font-size: 20pt;
-        }
-
-        body {  /* Select Body Element */
-            font-family: Arial, sans-serif;
-        }
-
-        a.nodec {   /* Select Hyperlink without underline */
-            text-decoration: none;
-        }
-
-        a:hover {   /* Select Hyperlink on Hover */
-            text-decoration: underline;
-        }
-
-        li em {    /* Select Nested Element(nested em in li) */
-            color: black;
-            font-weight: bold;
-        }
-
-        h1,
-        em {    /* Select Multiple Elements */
-            text-decoration: underline;
-        }
-
-        ul {    /* Select Outer Unordered List */
-            list-style-type: none;
-            margin-left: 20;
-            padding-right: 10;
-        }
-
-        ul ul {     /* Select Nested Unordered List */
-            font-size: 12pt;
-            font-family: Arial, sans-serif;
-            color: deepskyblue;
-        }
+        p{}
     </style>
 
 
@@ -228,6 +176,17 @@
         
         Universal Selectors
         *{} // Select all elements on the page
+
+        Style the first element after the specified selector
+        :nth-child() pseudo-class is used to select elements that match a specific numeric position within a parent container.
+        #id:nth-child(1){} // select the first element after #id
+
+        /* Style every even row of a table with a light background color */
+            tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+
 
         
 

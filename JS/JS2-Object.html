@@ -94,7 +94,7 @@
         str.split(""); // split a string into an array of characters
         str.split("|"); // split a string into an array of substrings, and returns the new array
         str.split("|", 3); // split a string into an array of substrings, and returns the new array
-        
+
 
 
 
@@ -167,9 +167,9 @@
         // Empty parentheses after an object name indicate a call to the object’s constructor with no arguments
         // constructor is an initializer method for an object
         // Date constructor with no arguments initializes the Date object with the local computer’s current date and time
-        var d = new Date(milliseconds); 
+        var d = new Date(milliseconds);
         // supply milliseconds argument
-        var d = new Date(dateString); 
+        var d = new Date(dateString);
         var d = new Date(year, month, day, hours, minutes, seconds, milliseconds);
 
         d.now(); // returns the number of milliseconds since midnight Jan 1, 1970
@@ -188,7 +188,10 @@
         d.getSeconds(); // returns the seconds (from 0-59)
         d.getTime(); // returns the number of milliseconds since midnight Jan 1 1970, and a specified date
         d.getTimezoneOffset(); // returns the time difference between UTC time and local time, in minutes
-        
+        // To print the day of the week
+        var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        var dayOfWeekString = daysOfWeek[nowdate.getDay()];
+
         // GET UTC
         d.getUTCDate(); // returns the day of the month, according to universal time (from 1-31)
         d.getUTCDay(); // returns the day of the week, according to universal time (from 0-6)
@@ -198,7 +201,7 @@
         d.getUTCMinutes(); // returns the minutes, according to universal time (from 0-59)
         d.getUTCMonth(); // returns the month, according to universal time (from 0-11)
         d.getUTCSeconds(); // returns the seconds, according to universal time (from 0-59)
-        
+
         // SET
         d.setDate(); // sets the day of the month of a date object
         d.setFullYear(); // sets the year of a date object
@@ -208,7 +211,7 @@
         d.setMonth(); // sets the month of a date object
         d.setSeconds(); // sets the seconds of a date object
         d.setTime(); // sets a date and time by adding or subtracting a specified number of milliseconds to/from midnight January 1, 1970
-        
+
         // SET UTC
         d.setUTCDate(); // sets the day of the month of a date object, according to universal time
         d.setUTCFullYear(); // sets the year of a date object, according to universal time
@@ -217,7 +220,7 @@
         d.setUTCMinutes(); // sets the minutes of a date object, according to universal time
         d.setUTCMonth(); // sets the month of a date object, according to universal time
         d.setUTCSeconds(); // sets the seconds of a date object, according to universal time
-        
+
         // TO
         d.toDateString(); // converts the date portion of a Date object into a readable string
         d.toISOString(); // returns the date as a string, using the ISO standard
@@ -240,13 +243,13 @@
         Constructor function
         Object initializer/ literal notation
         */
-        
+
         // 1. Using the keyword new
         var person = new Object();
         person.name = "Nicholas";
         person.age = 29;
         person.job = "Software Engineer";
-        person.sayName = function() {
+        person.sayName = function () {
             alert(this.name);
         };
         // Access by dot notation
@@ -255,37 +258,37 @@
         alert(person.name); // "Nicholas"
         // Access by bracket notation
         alert(person["name"]); // "Nicholas"
-        
-        
+
+
         // 2. Constructor function
         function Person(name, age, job) {
             this.name = name;
             this.age = age;
             this.job = job;
-            this.sayName = function() {
+            this.sayName = function () {
                 alert(this.name);
             };
         }
         var person1 = new Person("Nicholas", 29, "Software Engineer");
         var person2 = new Person("Greg", 27, "Doctor");
-        
+
         // 3. Object initializer/ literal notation
         var person = {
             name: "Nicholas",
             age: 29,
             job: "Software Engineer",
-            sayName: function() {
+            sayName: function () {
                 alert(this.name);
             }
         };
-        
+
         // Extra
         // 4. Object.create()
         var person = {
             name: "Nicholas",
             age: 29,
             job: "Software Engineer",
-            sayName: function() {
+            sayName: function () {
                 alert(this.name);
             }
         };
@@ -304,7 +307,7 @@
         delete person.age;
         delete person["age"];
 
-        
+
         /*  ========================================== 
                 USING JSON (JavaScript Object Notation) to REPRESENT OBJECT
             ==========================================*/
@@ -360,13 +363,13 @@
             name: "Nicholas",
             age: 29,
             job: "Software Engineer",
-            sayName: function() {
+            sayName: function () {
                 alert(this.name);
             }
         };
         var personJSON = JSON.stringify(person);
         alert(personJSON); // "{"name":"Nicholas","age":29,"job":"Software Engineer"}"
-        
+
         // 2. JSON.parse()
         // Converts JSON string into an JavaScript object
         var personObject = JSON.parse(personJSON);
@@ -374,6 +377,23 @@
         alert(personObject.age); // 29
         alert(personObject.job); // "Software Engineer"
         alert(personObject.sayName); // undefined
+
+        // ============= Store JSON Object into Session storage =============================
+        // Convert the JavaScript object to a JSON string
+        var userProfileJSON = JSON.stringify(user_profile);
+
+        // Store the JSON string in sessionStorage
+        sessionStorage.setItem('userProfile', userProfileJSON);
+
+        // ============= Retrieve JSON Object =============================
+        // Retrieve the JSON string from sessionStorage
+        var userProfileJSON = localStorage.getItem('userProfile');
+
+        // Parse the JSON string back to a JavaScript object
+        var userProfile = JSON.parse(userProfileJSON);
+
+        // Now, userProfile contains the stored JSON object
+        console.log(userProfile);
 
 
 

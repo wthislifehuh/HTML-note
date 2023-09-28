@@ -31,6 +31,30 @@
 </head>
 
 <body>
+    <!-- ===================== <noscript> ===================== -->
+    <!-- Display a message when JavaScript is disabled -->
+    <noscript>
+        <p>Please enable JavaScript to fully experience this website.</p>
+    </noscript>
+
+    <!-- Your JavaScript code that may enhance the website -->
+    <script>
+        // Your JavaScript code here
+    </script>
+
+    <!-- Display the dynamic widget if JavaScript is enabled -->
+    <script>
+        // JavaScript code to create and display a dynamic widget
+        // (e.g., an interactive chart)
+    </script>
+
+    <!-- Display a static widget if JavaScript is disabled
+    Provide alternative content to users -->
+    <noscript>
+        <img src="static-widget-image.jpg" alt="Static Widget Image">
+    </noscript>
+
+
     <!-- ===================== JS script in Body ===================== -->
     <script>
 
@@ -163,10 +187,64 @@
 
             */
 
+        //  Example for Global Variable Scope
+        // Declaring a global variable
+        var globalVar = "I'm global";
+        function exampleFunction() {
+            // Accessing the global variable from within a function
+            console.log(globalVar); // Outputs: "I'm global"
+        }
+        exampleFunction();
+
+
+        //  Example for Local Variable Scope
+        function exampleFunction() {
+            // Declaring a local variable
+            var localVar = "I'm local";
+
+            // Accessing the local variable within the function
+            console.log(localVar); // Outputs: "I'm local"
+        }
+        exampleFunction();
+        // Trying to access the local variable outside the function (will result in an error)
+        console.log(localVar); // Error: localVar is not defined
+
+
+
         // EXTRA
         console.log("Hello World");
         // displays the result in the console
         // used for debugging
+
+        // ===================== Check format ===================== 
+        var str = "Hello World";
+        if (!/^[0-9]+$/.test(str)) {    // check one or more digit
+            alert("Please enter a valid input!");
+        }
+        /*
+        ^: Matches the start of the string.
+        [0-9]: Matches any single digit between 0 and 9.
+        +: Quantifier that specifies "one or more" occurrences of the preceding character or group. In this case, it means one or more digits.
+        $: Matches the end of the string.*/
+
+        if(isNaN(str)){
+            alert("Input is Not a Number!");
+        }
+
+        if (!/^[0-9]{3}$/.test(str)) {    // check format
+            alert("Please enter a valid input!");
+        }
+        /*{3}: Quantifier that specifies exactly three occurrences of the preceding character or group, 
+        which in this case is [0-9], only accept 3 digits*/
+
+        if (!/^[0-9]-[A-Z]{10}$/.test(str)) {    // check format
+            alert("Please enter a valid input!");
+        }
+        // "1-ABCDEFGHIJ" (following the format)
+        // false for strings like "123-ABCDEFGHIJK" (not following the format)
+        /*
+        -: Matches a hyphen character
+        [A-Z]{10}: Matches exactly 10 uppercase letters (A-Z).*/
 
 
     </script>
@@ -177,7 +255,6 @@
     <script src="myScript.js"></script>
 
 
-    
 </body>
 
 </html>
