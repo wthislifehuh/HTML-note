@@ -72,16 +72,21 @@
         document.querySelector("#id"); // ID
         var ulElement = document.querySelector("ul"); // Tag Name
         document.querySelectorAll("[data-custom-attribute]"); // Select all elements with a specific data attribute
+        document.querySelector("a[target]"); //Select the first <a> element that has a "target" attribute:
+        //Example
+        document.querySelector("input[name='date']").value;
+        document.querySelector("div > p"); //Select the first <p> element with the parent is a <div> element.
 
         /* ===================== Changing HTML Elements ===================== */
         element.innerHTML = new content; // Change the inner HTML of an element
         element.attribute = new value; // Change the attribute value of an HTML element
         element.style.property = new style; // Change the style of an HTML element
         // document.querySelector("body").style.backgroundColor = "yellow";
+        // **Property = original without dash and upper case (font-size => fontSize)
         element.getAttribute("attribute");
         element.setAttribute(attribute, value); // Change the attribute value of an HTML element
         // EXTRA
-        element.style.cssText = style; // Change the style of an HTML element
+        element.style.cssText = "style: content;"; // Change the style of an HTML element
         element.setAttributeNS(namespaceURI, qualifiedName, value); // Change the attribute value of an HTML element
         element.removeAttribute(attribute); // Remove an attribute from an HTML element
         element.removeAttributeNS(namespaceURI, localName); // Remove an attribute from an HTML element
@@ -90,6 +95,7 @@
 
         /* ===================== Adding and Deleting Elements ===================== */
         document.createElement(element); // Create an HTML element
+        // == element.innerHTML += "content"
         document.removeChild(element); // Remove an HTML element
         document.appendChild(element); // Add an HTML element
         document.replaceChild(newone, old); // Replace an HTML element
@@ -258,7 +264,7 @@
         // Way 3: Register multiple handlers for the same listener
         myElement.addEventListener("click", functionA);
         myElement.addEventListener("click", functionB); // overwrites the value of onclick set by the first one
-
+        myElement.removeEventListener("click", functionA);
 
         /* ===================== Remove Event listener ===================== */
         // To remove a previously added listener: removeEventListener()
@@ -338,6 +344,16 @@
             e.stopPropagation(); // stop bubbling
             video.play(); // Video inside <div> play
         }
+        /* ===================== Document Loaded ===================== */
+        document.addEventListener('DOMContentLoaded', function () {
+            // Code to run when the DOM content is loaded goes here
+
+            // Example: Change the text of an element with the id "example-element"
+            var exampleElement = document.getElementById('example-element');
+            if (exampleElement) {
+                exampleElement.textContent = 'DOM content is loaded!';
+            }
+        });
 
         /* ============================= Event =============================
         Mouse Events:

@@ -476,7 +476,9 @@
         // URL: (required) the URL of file to load
         // data: (optional)specifies a set of query string (i.e. key/value pairs) that is sent to the web server along with the request
         // success: (optional) callback function that is executed if the request succeeds
-
+        $.post(URL, function (data, status) { 
+            // code
+        });
         // Example (1):
         /*Uses the jQuery $.get() method to make an Ajax request to the https://uccd2223-todoapi.azurewebsites.net/api/DateTime WebAPI using HTTP GET method.
             The date and time returned from the server will be displayed in the browser without refreshing the page.

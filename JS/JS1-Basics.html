@@ -114,6 +114,7 @@
         // convert a string to a floating-point number (NaN if first character cannot be converted to a number)
         var numInt = parseInt(str);
         // convert a string to an integer (returns NaN if first character cannot be converted to a number)
+        var str = numInt.toString(); // Convert it back to a string
         var str = toFixed(num);
         // convert a number into a string, rounding the number to keep only <num> decimals
 
@@ -209,8 +210,6 @@
         // Trying to access the local variable outside the function (will result in an error)
         console.log(localVar); // Error: localVar is not defined
 
-
-
         // EXTRA
         console.log("Hello World");
         // displays the result in the console
@@ -227,7 +226,7 @@
         +: Quantifier that specifies "one or more" occurrences of the preceding character or group. In this case, it means one or more digits.
         $: Matches the end of the string.*/
 
-        if(isNaN(str)){
+        if (isNaN(str)) {
             alert("Input is Not a Number!");
         }
 

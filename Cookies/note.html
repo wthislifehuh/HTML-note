@@ -1,0 +1,31 @@
+<script>
+    function writeCookies(){
+        // For expiration date
+        var now = new Date();
+        now.setDate(now.getDate()+100); // 100 days from now
+
+        // Encode cookies
+        cookiesValue = encodeURIComponent(document.getElementById("username"));
+        cookiesValue2 = encodeURIComponent(document.getElementById("code"));
+
+        //Assign a string value to the document.cookie object to store cookie
+        document.cookie = "name=" + cookiesValue + "SameSite=Strict" + ";expires=" + now.toUTCString();
+        //FULL
+        document.cookie = "code=" + cookiesValue2 + "SameSite=Strict" + ";domain=example.com" + ";path=/www.example.com" + ";expires=" + now.toUTCString();
+    }
+
+    function readCookies(){
+        // (since it might contain multiple cookies)
+        // Get all the cookies pairs in an array
+        var cookies = document.cookie.split(";");
+
+        // Extract name and value
+        for(var i=0; i<cookies.length; i++){
+            var name = decodeURIComponent(cookies[i].split("=")[0]);
+            // Decode the value
+            var value = decodeURIComponent(cookies[i].split("=")[1]);
+            
+            // Code for cookies value
+        }
+    }
+</script>

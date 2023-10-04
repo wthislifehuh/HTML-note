@@ -193,7 +193,9 @@
             <!-- Do not self validate - Add pattern attribute to check format
             \( and \) - These are escaped parentheses, which match literal opening and closing parentheses.
             \d{3} - This part matches exactly three digits. \d represents any digit (0-9), and {3} specifies that it should occur exactly three times.
-            + - This is a space character followed by a plus sign. It matches one or more space characters in the input.-->
+            + - This is a space character followed by a plus sign. It matches one or more space characters in the input.
+                [0-9a-zA-Z]{3}-[0-9a-zA-Z]{7} - accept digit and alphabet-->
+            
         </p>
 
         <!-- ================= URL input =================-->

@@ -64,10 +64,12 @@
                 alert("Enter some value!");
                 return;
             }
+            // Set Expiration date in UTC time
             var now = new Date();
-            now.setMinutes(now.getMinutes() + 1);
+            now.setMinutes(now.getMinutes() + 1);   // Specify expiration minutes (1 minute from current time)
             // now.setTime(now.getTime() + exdays*24*60*60*1000)
 
+            // Encode cookies
             // encodeURIComponent()function: encodes special characters
             // encodes characters: , / ? : @ & = + $ # before storing it in the cookie
             cookievalue1 = encodeURIComponent(document.myform.customer.value) + ";";
@@ -98,7 +100,7 @@
             // Get all the cookies pairs in an array/ break a string into key and values
             cookiearray = allcookies.split(';');
 
-            // Now take key value pair out of this array
+            // Now take key value pair out of this array (since it might contain multiple cookies)
             for (var i = 0; i < cookiearray.length; i++) {
                 name = cookiearray[i].split('=')[0];
                 // decodeURIComponent() function: to read cookies values from encoded strings
